@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Menu">
+        <menu>
+            <group android:checkableBehavior="all">
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/ic_home"
+                    android:title="Home" />
+                <item
+                    android:id="@+id/nav_parcel"
+                    android:icon="@drawable/ic_parcel"
+                    android:title="Parcel" />
+
+                <item
+                    android:id="@+id/nav_edit_bill"
+                    android:icon="@drawable/ic_edit_bill"
+                    android:title="View Bills" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Masters">
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_user"
+                    android:icon="@drawable/ic_users"
+                    android:title="User" />
+                <item
+                    android:id="@+id/nav_category"
+                    android:icon="@drawable/ic_category"
+                    android:title="Category" />
+                <item
+                    android:id="@+id/nav_item"
+                    android:icon="@drawable/ic_items"
+                    android:title="Item" />
+                <item
+                    android:id="@+id/nav_table_category"
+                    android:icon="@drawable/ic_table_cat"
+                    android:title="Table Category" />
+                <item
+                    android:id="@+id/nav_table"
+                    android:icon="@drawable/ic_category"
+                    android:title="Table" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Reports">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_report"
+                    android:icon="@drawable/ic_reports"
+                    android:title="Reports" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Others">
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_printer"
+                    android:icon="@drawable/ic_print"
+                    android:title="Printer Settings" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>
