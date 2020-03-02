@@ -60,8 +60,27 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/llButton"
+        android:layout_above="@id/recyclerView"
         android:layout_below="@id/llHeader" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@+id/llButton"
+        android:id="@+id/linearLayout_remark">
+
+        <EditText
+            android:id="@+id/edRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Remark"
+            android:background="@android:drawable/editbox_background_normal"
+            android:lines="2"
+            android:maxLines="2"
+            android:padding="5dp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llButton"
@@ -97,6 +116,7 @@
                 android:layout_weight="1">
 
                 <EditText
+                    android:visibility="gone"
                     android:id="@+id/edDiscount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

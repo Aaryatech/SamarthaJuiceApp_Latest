@@ -5,9 +5,9 @@
     android:orientation="vertical">
 
     <ImageView
-        android:scaleType="centerCrop"
+        android:scaleType="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo" />
+        android:src="@drawable/samartha_logo" />
 
 </LinearLayout>

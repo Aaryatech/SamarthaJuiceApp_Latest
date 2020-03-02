@@ -6,13 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
-    tools:context=".activity.ParcelMenuWithSearchActivity">
+    tools:context="com.ats.samarthajuice.activity.ParcelMenuWithSearchActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:padding="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:id="@+id/ivBack"/>
 
         <TextView
             android:id="@+id/tvDate"
@@ -74,6 +83,7 @@
             </LinearLayout>
         </HorizontalScrollView>
 
+
         <LinearLayout
             android:visibility="visible"
             android:layout_width="match_parent"
@@ -111,7 +121,10 @@
 
             </LinearLayout>
 
+
+
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -119,7 +132,62 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvOrderCount"
+                        android:textSize="20sp"/>
+
+                    <EditText
+                        android:inputType="number"
+                        android:nextFocusUp="@id/edQty"
+                        android:nextFocusDown="@id/edQty"
+                        android:nextFocusForward="@id/edQty"
+                        android:nextFocusRight="@id/edQty"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:id="@+id/edCode"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:hint="Code"
+                        android:padding="15dp" />
+
+                    <EditText
+                        android:imeOptions="actionDone"
+                        android:maxLength="3"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:inputType="number"
+                        android:id="@+id/edQty"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/editbox_background_normal"
+                        android:hint="Quantity"
+                        android:padding="15dp" />
+
+                    <ImageView
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/ivSend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_arrow_white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"

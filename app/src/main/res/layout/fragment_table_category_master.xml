@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".fragment.TableCategoryMasterFragment">
+    tools:context="com.ats.samarthajuice.fragment.TableCategoryMasterFragment">
 
     <GridView
         android:layout_alignParentTop="true"

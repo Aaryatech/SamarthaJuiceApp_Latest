@@ -11,9 +11,15 @@
                     android:icon="@drawable/ic_home"
                     android:title="Home" />
                 <item
+                    android:visible="false"
                     android:id="@+id/nav_parcel"
                     android:icon="@drawable/ic_parcel"
                     android:title="Parcel" />
+
+                <item
+                    android:id="@+id/nav_open_edit_bill"
+                    android:icon="@drawable/ic_edit_bill"
+                    android:title="Open Bills" />
 
                 <item
                     android:id="@+id/nav_edit_bill"

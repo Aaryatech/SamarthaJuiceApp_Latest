@@ -17,6 +17,13 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/action_print"
+        android:icon="@drawable/ic_print_blue"
+        android:title="Print"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_download"
         android:icon="@drawable/ic_download"
         android:title="Download"

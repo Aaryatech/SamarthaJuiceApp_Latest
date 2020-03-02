@@ -6,7 +6,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:padding="8dp"
-    tools:context=".fragment.ItemMasterFragment">
+    tools:context="com.ats.samarthajuice.fragment.ItemMasterFragment">
 
     <GridView
         android:id="@+id/gridView"

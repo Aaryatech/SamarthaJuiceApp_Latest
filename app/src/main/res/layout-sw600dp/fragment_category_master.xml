@@ -7,7 +7,7 @@
     android:background="@color/colorWhite"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".fragment.CategoryMasterFragment">
+    tools:context="com.ats.samarthajuice.fragment.CategoryMasterFragment">
 
     <GridView
         android:layout_alignParentTop="true"

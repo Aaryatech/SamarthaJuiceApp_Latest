@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".fragment.AddItemFragment">
+    tools:context="com.ats.samarthajuice.fragment.AddItemFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,7 +89,6 @@
                     <EditText
                         android:id="@+id/edRate"
                         android:layout_width="match_parent"
-                        android:text="0"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:hint="Rate"
@@ -146,7 +145,7 @@
                     <EditText
                         android:id="@+id/edSgst"
                         android:layout_width="match_parent"
-                        android:text="0"
+                        android:text="2.5"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:hint="SGST"
@@ -163,7 +162,7 @@
                     android:layout_marginTop="10dp">
 
                     <EditText
-                        android:text="0"
+                        android:text="2.5"
                         android:id="@+id/edCgst"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,6 +181,7 @@
                     android:layout_marginTop="10dp">
 
                     <EditText
+                        android:text="21050000"
                         android:id="@+id/edHSN"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

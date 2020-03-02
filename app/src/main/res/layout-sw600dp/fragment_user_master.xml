@@ -7,7 +7,7 @@
     android:focusable="true"
     android:background="@color/colorWhite"
     android:focusableInTouchMode="true"
-    tools:context=".fragment.UserMasterFragment">
+    tools:context="com.ats.samarthajuice.fragment.UserMasterFragment">
 
     <android.support.v7.widget.RecyclerView
         android:layout_centerInParent="true"

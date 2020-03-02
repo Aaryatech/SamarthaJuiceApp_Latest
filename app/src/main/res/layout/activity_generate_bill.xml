@@ -6,13 +6,22 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".activity.GenerateBillActivity">
+    tools:context="com.ats.samarthajuice.activity.GenerateBillActivity">
 
     <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:orientation="horizontal">
+
+        <ImageView
+            android:padding="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:id="@+id/ivBack"/>
 
         <TextView
             android:id="@+id/tvDate"
@@ -148,10 +157,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -188,6 +198,18 @@
                 android:background="@color/colorPrimary"
                 android:padding="5dp"
                 android:text="Generate Bill"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnBillPrint"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:text="Customer Print"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
                 android:textStyle="bold" />

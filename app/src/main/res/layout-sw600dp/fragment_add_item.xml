@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:padding="8dp"
-    tools:context=".fragment.AddItemFragment">
+    tools:context="com.ats.samarthajuice.fragment.AddItemFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,8 +97,7 @@
                         android:inputType="numberDecimal"
                         android:maxLines="1"
                         android:padding="5dp"
-                        android:singleLine="true"
-                        android:text="0" />
+                        android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -155,7 +154,7 @@
                         android:maxLines="1"
                         android:padding="5dp"
                         android:singleLine="true"
-                        android:text="0" />
+                        android:text="2.5" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -174,7 +173,7 @@
                         android:maxLines="1"
                         android:padding="5dp"
                         android:singleLine="true"
-                        android:text="0" />
+                        android:text="2.5" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -184,6 +183,7 @@
                     android:layout_marginTop="10dp">
 
                     <EditText
+                        android:text="21050000"
                         android:id="@+id/edHSN"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

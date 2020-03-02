@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     android:background="@drawable/img_table"
-    tools:context=".fragment.TableMasterFragment">
+    tools:context="com.ats.samarthajuice.fragment.TableMasterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
