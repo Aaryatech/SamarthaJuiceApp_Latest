@@ -476,7 +476,7 @@ public class PrintHelper implements ReceiveListener {
             method = "addFeedLine";
             mPrinter.addFeedLine(1);
             String date = orderHeaderModels.get(0).getOrderDate();
-            textData.append("\t\t\bSamarth Juice Center\n");
+            textData.append("\t\t\bShree Samarth Juice Center\n");
             mPrinter.addTextAlign(Printer.ALIGN_LEFT);
 
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
@@ -485,6 +485,8 @@ public class PrintHelper implements ReceiveListener {
             textData.append("Date :- " + date + "  " + sdf.format(calendar.getTimeInMillis()) + "\n");
             textData.append("Invoice No :- " + bill + "\n");
             textData.append("Table No :- " + tableName + "\n\n");
+            textData.append("GSTIN No :- " +"27ABAFS0059G1ZD" + "\n\n");
+
 
             Log.e("OrderItems : ", "-----------" + orderItems.toString());
 
@@ -575,7 +577,6 @@ public class PrintHelper implements ReceiveListener {
 
             for (int t = 0; t < taxData.size(); t++) {
 
-
                 for (int d = 0; d < 25; d++) {
                     textData.append(" ");
                 }
@@ -627,7 +628,6 @@ public class PrintHelper implements ReceiveListener {
                         textData.append(" ");
                     }
                 }
-
 
                 String taxVal = String.format("%.2f", taxData.get(t).getTaxableAmt());
                 if (taxVal.length() >= 17) {

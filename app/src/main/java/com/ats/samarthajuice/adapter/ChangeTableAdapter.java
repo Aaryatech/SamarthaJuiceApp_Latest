@@ -100,11 +100,6 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
 
                             Log.e("Update table : ", "------------" + response.body());
 
-//                            HomeActivity activity = (HomeActivity) context;
-//                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
-//                            ft.replace(R.id.content_frame, new HomeFragment(), "Home");
-//                            ft.commit();
-
                             Intent intent = new Intent(context, HomeActivity.class);
                             context.startActivity(intent);
 

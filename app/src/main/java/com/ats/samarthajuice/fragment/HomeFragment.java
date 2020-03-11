@@ -91,8 +91,9 @@ public class HomeFragment extends Fragment {
 
                 CustomSharedPreference.putInt(getActivity(), CustomSharedPreference.KEY_TABLE_CAT_ID, catId);
 
-                getAllBusyTables(catId);
                 getAllFreeTables(catId);
+                getAllBusyTables(catId);
+
 
             }
 

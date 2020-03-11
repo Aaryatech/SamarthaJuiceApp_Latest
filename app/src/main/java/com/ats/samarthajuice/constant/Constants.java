@@ -19,18 +19,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Constants {
 
-    // public static  String serverURL="http://192.168.2.3:8099/";
+   //  public static  String serverURL="http://192.168.2.3:8091/";
    //  public static  String serverURL="http://192.168.2.13:8097/";
-     public static  String serverURL="http://192.168.2.201:8080/SamarthApi/";
+    // public static  String serverURL="http://192.168.2.201:8080/SamarthApi/";
 
-   //  public static String serverURL = "http://132.148.148.215:8080/happyfeast/";
+    // public static String serverURL = "http://132.148.148.215:8080/happyfeast/";
 
-//    public static String categoryImagePath = "http://132.148.143.124:8080/happyfeast/uploads/category/";
+    //    public static String categoryImagePath = "http://132.148.143.124:8080/happyfeast/uploads/category/";
 //    public static String itemImagePath = "http://132.148.143.124:8080/happyfeast/uploads/item/";
 
 
-    public static String categoryImagePath = "http://132.148.148.215:8080/happyfeastuploads/category/";
-    public static String itemImagePath = "http://132.148.148.215:8080/happyfeastuploads/item/";
+     public static String serverURL = "http://97.74.228.55:8080/SamarthApi/";
+
+    public static String categoryImagePath = "http://97.74.228.55:8080/SamarthApi/happyfeastuploads/category/";
+    public static String itemImagePath = "http://97.74.228.55:8080/SamarthApi/happyfeastuploads/item/";
+
+
+//    public static String categoryImagePath = "http://132.148.148.215:8080/happyfeastuploads/category/";
+//    public static String itemImagePath = "http://132.148.148.215:8080/happyfeastuploads/item/";
 
     public static OkHttpClient client = new OkHttpClient.Builder()
             .addInterceptor(new Interceptor() {

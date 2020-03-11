@@ -1,11 +1,9 @@
 package com.ats.samarthajuice.activity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ats.samarthajuice.R;
 import com.ats.samarthajuice.constant.Constants;
 import com.ats.samarthajuice.model.Admin;
 import com.ats.samarthajuice.model.BillItemsAdapter;
@@ -33,7 +32,6 @@ import com.ats.samarthajuice.printer.PrintHelper;
 import com.ats.samarthajuice.printer.PrintReceiptType;
 import com.ats.samarthajuice.util.CommonDialog;
 import com.ats.samarthajuice.util.CustomSharedPreference;
-import com.ats.samarthajuice.R;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
@@ -392,6 +390,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                                 String ip = CustomSharedPreference.getStringPrinter(GenerateBillActivity.this, CustomSharedPreference.KEY_BILL_IP);
                                 PrintHelper printHelper = new PrintHelper(GenerateBillActivity.this, ip, orderList, tableName, discount, billNo,data, PrintReceiptType.BILL);
                                 printHelper.runPrintReceiptSequence();
+
                             } catch (Exception e) {
                             }
 

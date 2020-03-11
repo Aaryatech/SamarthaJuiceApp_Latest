@@ -69,7 +69,7 @@ public class BusyTableAdapter extends BaseAdapter {
         LinearLayout linearLayout;
         Button btnBill;
 
-//------------------------
+//----------------------------------------------------------------
 
         TextView tvTableNo,tvTotal;
         LinearLayout llBill,llOrder,llChange;
@@ -92,7 +92,7 @@ public class BusyTableAdapter extends BaseAdapter {
             holder.linearLayout = rowView.findViewById(R.id.linearLayout);
             holder.btnBill=rowView.findViewById(R.id.btnBill);
 
-            //-------------------------------------------
+            //-----------------------------------------------------------------------------------------
 
             holder.tvTableNo=rowView.findViewById(R.id.tvTableNo);
             holder.tvTotal=rowView.findViewById(R.id.tvTotal);
@@ -118,6 +118,7 @@ public class BusyTableAdapter extends BaseAdapter {
             final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
             if (admin!=null){
+
                 if (admin.getType().equalsIgnoreCase("Captain")){
                     holder.btnBill.setVisibility(View.GONE);
                 }
@@ -162,7 +163,10 @@ public class BusyTableAdapter extends BaseAdapter {
         holder.llChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.e("Free List","---------------------------------------------"+freeTableList);
                 new ChangeDialog(context,freeTableList,tableList.get(position)).show();
+
             }
         });
 
@@ -199,6 +203,7 @@ public class BusyTableAdapter extends BaseAdapter {
         private ArrayList<TableFreeModel> freeTableList = new ArrayList<>();
         private RecyclerView recyclerView;
         private Button btnCancel,btnChangeTable;
+      //  private TextView tvLable,tvGst;
         ChangeTableAdapter changeTableAdapter;
         TableBusyModel tableBusyModel;
 
@@ -232,6 +237,9 @@ public class BusyTableAdapter extends BaseAdapter {
             btnCancel=(Button) findViewById(R.id.btnCancel);
             btnChangeTable=(Button)findViewById(R.id.btnChangeTable);
 
+            //tvLable=(TextView)findViewById(R.id.tvLable);
+            //tvGst=(TextView)findViewById(R.id.tvGst);
+
             btnCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -240,6 +248,7 @@ public class BusyTableAdapter extends BaseAdapter {
             });
 
             Log.e("BUSY MODEL","--------------------------------------------------"+tableBusyModel);
+            Log.e("FREE MODEL","--------------------------------------------------"+freeTableList);
 
             changeTableAdapter = new ChangeTableAdapter(freeTableList, getContext(),tableBusyModel);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

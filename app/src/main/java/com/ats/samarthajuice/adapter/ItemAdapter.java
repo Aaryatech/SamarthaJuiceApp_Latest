@@ -134,7 +134,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    deleteItem(itemList.get(position).getCatId());
+                                    deleteItem(itemList.get(position).getItemId());
                                 }
                             });
                             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -152,6 +152,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                     }
 
                 });
+
                 ShowPopupMenuIcon.setForceShowIcon(popupMenu);
                 popupMenu.show();
 
@@ -203,6 +204,8 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
 
 
     public void deleteItem(int itemId) {
+
+        Log.e("PARAMETER","                  ITEM ID               "+itemId);
         if (Constants.isOnline(context)) {
             final CommonDialog commonDialog = new CommonDialog(context, "Loading", "Please Wait...");
             commonDialog.show();
@@ -217,9 +220,12 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                             Log.e("Data : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
+
                             if (data == null) {
+
                                 commonDialog.dismiss();
                                 Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
+
                             } else {
 
                                 commonDialog.dismiss();
