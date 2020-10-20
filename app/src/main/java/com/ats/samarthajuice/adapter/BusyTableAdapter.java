@@ -1,31 +1,21 @@
 package com.ats.samarthajuice.adapter;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ats.samarthajuice.activity.MenuWithSearchActivity;
 import com.ats.samarthajuice.R;
 import com.ats.samarthajuice.activity.GenerateBillActivity;
 import com.ats.samarthajuice.activity.HomeActivity;
-import com.ats.samarthajuice.activity.MenuWithSearchActivity;
 import com.ats.samarthajuice.model.Admin;
 import com.ats.samarthajuice.model.TableBusyModel;
-import com.ats.samarthajuice.model.TableFreeModel;
 import com.ats.samarthajuice.util.CustomSharedPreference;
 import com.google.gson.Gson;
 
@@ -35,15 +25,13 @@ public class BusyTableAdapter extends BaseAdapter {
 
     private ArrayList<TableBusyModel> tableList;
     private ArrayList<TableBusyModel> originalList;
-    private ArrayList<TableFreeModel> freeTableList = new ArrayList<>();
     private Context context;
     private static LayoutInflater inflater = null;
 
-    public BusyTableAdapter(ArrayList<TableBusyModel> tableList, Context context,ArrayList<TableFreeModel> freeTableList) {
+    public BusyTableAdapter(ArrayList<TableBusyModel> tableList, Context context) {
         this.tableList = tableList;
         this.originalList = tableList;
         this.context = context;
-        this.freeTableList = freeTableList;
         this.inflater = (LayoutInflater) context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -69,10 +57,10 @@ public class BusyTableAdapter extends BaseAdapter {
         LinearLayout linearLayout;
         Button btnBill;
 
-//----------------------------------------------------------------
+//------------------------
 
         TextView tvTableNo,tvTotal;
-        LinearLayout llBill,llOrder,llChange;
+        LinearLayout llBill,llOrder;
 
     }
 
@@ -92,12 +80,11 @@ public class BusyTableAdapter extends BaseAdapter {
             holder.linearLayout = rowView.findViewById(R.id.linearLayout);
             holder.btnBill=rowView.findViewById(R.id.btnBill);
 
-            //-----------------------------------------------------------------------------------------
+            //-------------------------------------------
 
             holder.tvTableNo=rowView.findViewById(R.id.tvTableNo);
             holder.tvTotal=rowView.findViewById(R.id.tvTotal);
             holder.llBill=rowView.findViewById(R.id.llBill);
-            holder.llChange=rowView.findViewById(R.id.llChange);
             holder.llOrder=rowView.findViewById(R.id.llOrder);
 
             rowView.setTag(holder);
@@ -118,7 +105,6 @@ public class BusyTableAdapter extends BaseAdapter {
             final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
             if (admin!=null){
-
                 if (admin.getType().equalsIgnoreCase("Captain")){
                     holder.btnBill.setVisibility(View.GONE);
                 }
@@ -160,16 +146,6 @@ public class BusyTableAdapter extends BaseAdapter {
             }
         });
 
-        holder.llChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.e("Free List","---------------------------------------------"+freeTableList);
-                new ChangeDialog(context,freeTableList,tableList.get(position)).show();
-
-            }
-        });
-
         //----------------------------------------------------------------------
 
         holder.llOrder.setOnClickListener(new View.OnClickListener() {
@@ -197,66 +173,5 @@ public class BusyTableAdapter extends BaseAdapter {
         return rowView;
     }
 
-
-
-    private class ChangeDialog extends Dialog {
-        private ArrayList<TableFreeModel> freeTableList = new ArrayList<>();
-        private RecyclerView recyclerView;
-        private Button btnCancel,btnChangeTable;
-      //  private TextView tvLable,tvGst;
-        ChangeTableAdapter changeTableAdapter;
-        TableBusyModel tableBusyModel;
-
-        public ChangeDialog(Context context, ArrayList<TableFreeModel> freeTableList,TableBusyModel tableBusyModel) {
-            super(context);
-            this.freeTableList = freeTableList;
-            this.freeTableList = freeTableList;
-            this.tableBusyModel = tableBusyModel;
-
-        }
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            setTitle("Filter");
-            setContentView(R.layout.dialog_layout_change_table);
-            setCancelable(false);
-
-            Window window = getWindow();
-            WindowManager.LayoutParams wlp = window.getAttributes();
-
-            wlp.gravity = Gravity.CENTER_VERTICAL;
-            wlp.x = 5;
-            wlp.y = 5;
-            wlp.width = WindowManager.LayoutParams.MATCH_PARENT;
-            wlp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            window.setAttributes(wlp);
-
-            recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
-            btnCancel=(Button) findViewById(R.id.btnCancel);
-            btnChangeTable=(Button)findViewById(R.id.btnChangeTable);
-
-            //tvLable=(TextView)findViewById(R.id.tvLable);
-            //tvGst=(TextView)findViewById(R.id.tvGst);
-
-            btnCancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dismiss();
-                }
-            });
-
-            Log.e("BUSY MODEL","--------------------------------------------------"+tableBusyModel);
-            Log.e("FREE MODEL","--------------------------------------------------"+freeTableList);
-
-            changeTableAdapter = new ChangeTableAdapter(freeTableList, getContext(),tableBusyModel);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(changeTableAdapter);
-
-        }
-    }
 
 }

@@ -135,7 +135,8 @@ public class HomeFragment extends Fragment {
                                 busyTableList.clear();
                                 busyTableList = data;
 
-                                busyTableAdapter = new BusyTableAdapter(busyTableList, getContext(),freeTableList);
+                                //busyTableAdapter = new BusyTableAdapter(busyTableList, getContext(),freeTableList);
+                                busyTableAdapter = new BusyTableAdapter(busyTableList, getContext());
                                 gridView.setAdapter(busyTableAdapter);
 
                                 commonDialog.dismiss();

@@ -709,6 +709,14 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                                 } catch (Exception e) {
                                 }
 
+
+                                try {
+                                    String ip = CustomSharedPreference.getStringPrinter(MenuWithSearchActivity.this, CustomSharedPreference.KEY_BILL_IP);
+                                    PrintHelper printHelper = new PrintHelper(MenuWithSearchActivity.this, ip, data, orderDetailsArray, tableName, PrintReceiptType.KOT);
+                                    printHelper.runPrintReceiptSequence();
+                                } catch (Exception e) {
+                                }
+
                                 onBackPressed();
 
                                 commonDialog.dismiss();

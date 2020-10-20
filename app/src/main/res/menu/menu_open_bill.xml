@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_card"
+        android:title="Debit/Credit Card" />
+
+    <item
+        android:id="@+id/action_googlePay"
+        android:title="Google Pay" />
+
+    <item
+        android:id="@+id/action_payTM"
+        android:title="PayTM" />
+
+    <item
+        android:id="@+id/action_cash"
+        android:title="Cash" />
+
+    <item
+        android:id="@+id/action_Swiggy"
+        android:title="Swiggy" />
+    <item
+        android:id="@+id/action_Zomato"
+        android:title="Zomato" />
+    <item
+        android:id="@+id/action_Uber_eats"
+        android:title="Uber-eats" />
+    <item
+        android:id="@+id/action_Foodpanda"
+        android:title="Foodpanda" />
+
+
+
+</menu>

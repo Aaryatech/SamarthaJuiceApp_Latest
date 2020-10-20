@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="remarkarray">
+        <item>Remark</item>
+        <item>with Ice cream</item>
+        <item>without Ice cream</item>
+        <item>plain</item>
+        <item>without sugar</item>
+        <item>without ice</item>
+        <item>parcel</item>
+        <item>1/2</item>
+        <item>2/4</item>
+        <item>no tuti fruity</item>
+    </string-array>
+</resources>

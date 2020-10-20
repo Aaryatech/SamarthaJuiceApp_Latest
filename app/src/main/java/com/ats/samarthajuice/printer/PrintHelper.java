@@ -212,10 +212,10 @@ public class PrintHelper implements ReceiveListener {
             // textData.append("Captain Name :- "+captainName + "\n");
             textData.append("Date :- " + date + "  " + sdf.format(calendar.getTimeInMillis()) + "\n");
 
-            // textData.append("Order No :- " + orderDisplays.getOrderId());
+            textData.append("Order No :- " + orderDisplays.getOrderId()+ "\n");
             textData.append("Table No :- " + tableName + "\n\n");
 
-            Log.e("OrderItems : ", "-----------" + orderItems.toString());
+           // Log.e("OrderItems : ", "-----------" + orderItems.toString());
 
             mPrinter.addTextStyle(Printer.FALSE, Printer.FALSE, Printer.TRUE, Printer.COLOR_1);
 
