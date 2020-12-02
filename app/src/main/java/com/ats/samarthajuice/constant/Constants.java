@@ -21,7 +21,8 @@ public class Constants {
 
     // public static  String serverURL="http://192.168.2.2:8091/";
 
-    public static String serverURL = "http://192.168.2.201:8080/SamarthApi/";
+    //public static String serverURL = "http://192.168.2.201:8080/SamarthApi/";
+    public static String serverURL = "http://97.74.228.55:8080/SamarthApi/";
 
     public static String categoryImagePath = "http://97.74.228.55:8080/SamarthApi/happyfeastuploads/category/";
     public static String itemImagePath = "http://97.74.228.55:8080/SamarthApi/happyfeastuploads/item/";
