@@ -84,14 +84,14 @@ public class PrinterSettingsFragment extends Fragment implements View.OnClickLis
         } else if (v.getId() == R.id.btnTestBill) {
             try {
                 String ip = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_BILL_IP);
-                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST);
+                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,10);
                 printHelper.runPrintReceiptSequence();
             } catch (Exception e) {
             }
         } else if (v.getId() == R.id.btnTestKOT) {
             try {
                 String ip = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_KOT_IP);
-                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST);
+                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,1);
                 printHelper.runPrintReceiptSequence();
             } catch (Exception e) {
             }

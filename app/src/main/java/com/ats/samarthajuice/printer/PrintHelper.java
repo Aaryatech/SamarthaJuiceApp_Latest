@@ -56,10 +56,11 @@ public class PrintHelper implements ReceiveListener {
         }
     }
 
-    public PrintHelper(Activity activity, String printerAddress, int printReceiptType) {
+    public PrintHelper(Activity activity, String printerAddress, int printReceiptType,int type) {
         this.activity = activity;
         this.printerAddress = printerAddress;
-        this.modelConstant = Printer.TM_T82; //ModelConstant;
+        //this.modelConstant = Printer.TM_T82; //ModelConstant;
+        this.modelConstant = type;
         this.printReceiptType = printReceiptType;
     }
 
@@ -91,7 +92,7 @@ public class PrintHelper implements ReceiveListener {
     public PrintHelper(Activity activity, String printerAddress, ParcelOrderHeaderModel parcelOrderHeaderModel, ArrayList<ParcelOrderDetails> parcelOrderDetails, int printReceiptType) {
         this.activity = activity;
         this.printerAddress = printerAddress;
-        this.modelConstant = Printer.TM_T82;
+        this.modelConstant = Printer.TM_M30;
         this.parcelOrderHeaderModel = parcelOrderHeaderModel;
         this.parcelOrderDetails = parcelOrderDetails;
         this.printReceiptType = printReceiptType;
