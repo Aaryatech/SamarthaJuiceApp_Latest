@@ -50,7 +50,7 @@ public class ItemCancelReportAdapter extends RecyclerView.Adapter<ItemCancelRepo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ItemCancelReportModel model = itemList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvItem.setText(model.getItemName());
         holder.tvChargeable.setText("" + model.getChargable());

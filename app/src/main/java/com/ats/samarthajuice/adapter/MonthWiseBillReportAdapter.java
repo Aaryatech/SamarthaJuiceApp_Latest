@@ -50,7 +50,7 @@ public class MonthWiseBillReportAdapter extends RecyclerView.Adapter<MonthWiseBi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final MonthWiseBillReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvMonth.setText(model.getMonth());
         holder.tvAmount.setText("" + model.getPayableAmount());

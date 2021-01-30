@@ -136,7 +136,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         String jsonAdmin = CustomSharedPreference.getString(this, CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         if (admin != null) {
             userId = admin.getAdminId();
@@ -353,7 +353,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private void gridViewSetting(GridView gridview) {
 
         int size = categoryWiseItemList.size();
-        // Log.e("Size : ", "----------" + size);
+        // //Log.e("Size : ", "----------" + size);
         // Calculated single Item Layout Width for each grid element ....
         int width = 130;//400
 
@@ -365,7 +365,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         float density = dm.density;
 
         int totalWidth = (int) (width * size * density);
-        //  Log.e("Total Width : ", "----------" + totalWidth);
+        //  //Log.e("Total Width : ", "----------" + totalWidth);
         int singleItemWidth = (int) (width * density);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -391,7 +391,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         if (response.body() != null) {
 
-                            Log.e("order Data : ", "------------" + response.body());
+                            //Log.e("order Data : ", "------------" + response.body());
 
                             ArrayList<OrderHeaderModel> data = response.body();
                             if (data == null) {
@@ -443,12 +443,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         } else {
                             commonDialog.dismiss();
                             llButton.setVisibility(View.INVISIBLE);
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         llButton.setVisibility(View.INVISIBLE);
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -457,7 +457,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 public void onFailure(Call<ArrayList<OrderHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     llButton.setVisibility(View.INVISIBLE);
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -479,7 +479,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             ArrayList<CategoryItemModel> data = response.body();
                             if (data == null) {
@@ -509,11 +509,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -521,7 +521,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onFailure(Call<ArrayList<CategoryItemModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -543,7 +543,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Order Data : ", "------------" + response.body());
+                            //Log.e("Order Data : ", "------------" + response.body());
 
                             OrderHeaderModel data = response.body();
                             if (data == null) {
@@ -566,11 +566,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -578,7 +578,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onFailure(Call<OrderHeaderModel> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -642,7 +642,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 OrderModel orderModel = new OrderModel(0, userId, tableNo, 1, sdf.format(calendar.getTimeInMillis()), sdf1.format(calendar.getTimeInMillis()), 1, orderDetailArray);
 
                 if (orderDetailArray.size() > 0) {
-                    Log.e("BEAN : ", "--------------------" + orderModel);
+                    //Log.e("BEAN : ", "--------------------" + orderModel);
                     saveOrder(orderModel);
                     openDialog.dismiss();
 
@@ -665,7 +665,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void showCancelDialog(final ArrayList<Integer> orderDetailIdList) {
-        Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
+        //Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
 
         final Dialog openDialog = new Dialog(MenuActivity.this);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -731,7 +731,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void cancelOrder(ArrayList<Integer> orderDetailIds, int status, String remark) {
-        Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
+        //Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
         if (Constants.isOnline(this)) {
             final CommonDialog commonDialog = new CommonDialog(this, "Loading", "Please Wait...");
             commonDialog.show();
@@ -743,7 +743,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         if (response.body() != null) {
 
-                            Log.e("cancel order: ", "------------" + response.body());
+                            //Log.e("cancel order: ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -760,12 +760,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.makeText(MenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         Toast.makeText(MenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -774,7 +774,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     Toast.makeText(MenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -797,7 +797,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         if (response.body() != null) {
 
-                            Log.e("free Data : ", "------------" + response.body());
+                            //Log.e("free Data : ", "------------" + response.body());
 
                             ArrayList<CancelMessageModel> data = response.body();
                             if (data == null) {
@@ -814,12 +814,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -827,7 +827,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onFailure(Call<ArrayList<CancelMessageModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

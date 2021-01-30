@@ -57,7 +57,7 @@ public class BillItemEditAdapter extends RecyclerView.Adapter<BillItemEditAdapte
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final BillDetail model = billDetail.get(position);
         final BillDetail modeltoSave = billDetailtoSave.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
 
         holder.tvItem.setText("" + model.getItemName());
@@ -96,7 +96,7 @@ public class BillItemEditAdapter extends RecyclerView.Adapter<BillItemEditAdapte
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("DELETE ITEM", "--------------------------------");
+                //Log.e("DELETE ITEM", "--------------------------------");
                 model.setDelStatus(0);
                 modeltoSave.setDelStatus(0);
 

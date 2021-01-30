@@ -52,7 +52,7 @@ public class MenuOrderAdapter extends RecyclerView.Adapter<MenuOrderAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final OrderHeaderModel model = orderList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvOrder.setText("KOT No. : " + model.getOrderId());
         holder.checkBox.setVisibility(View.GONE);
@@ -82,7 +82,7 @@ public class MenuOrderAdapter extends RecyclerView.Adapter<MenuOrderAdapter.MyVi
                         model.getOrderDetailsList().get(i).setChecked(true);
                         orderDetailIdStaticList.add(model.getOrderDetailsList().get(i).getOrderDetailsId());
                     }
-                    Log.e("CHECKED : ", "-----------" + model.getOrderDetailsList());
+                    //Log.e("CHECKED : ", "-----------" + model.getOrderDetailsList());
 
                     HashSet<Integer> hashSet = new HashSet<>();
                     hashSet.addAll(orderDetailIdStaticList);
@@ -90,7 +90,7 @@ public class MenuOrderAdapter extends RecyclerView.Adapter<MenuOrderAdapter.MyVi
                     orderDetailIdStaticList.clear();
                     orderDetailIdStaticList.addAll(hashSet);
 
-                    Log.e("ALL CHECKED : ", "-----STATIC------" + orderDetailIdStaticList);
+                    //Log.e("ALL CHECKED : ", "-----STATIC------" + orderDetailIdStaticList);
 
                     notifyDataSetChanged();
                 }

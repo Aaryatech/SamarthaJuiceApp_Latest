@@ -100,7 +100,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
         String jsonAdmin = CustomSharedPreference.getString(this, CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         if (admin != null) {
             userId = admin.getAdminId();
@@ -128,7 +128,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onPause() {
-        Log.e("SUGGESTION", "  ON PAUSE");
+        //Log.e("SUGGESTION", "  ON PAUSE");
 
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver);
         super.onPause();
@@ -145,7 +145,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
 
     private void handlePushNotification(Intent intent) {
 
-        Log.e("handlePushNotification", "------------------------------------**********");
+        //Log.e("handlePushNotification", "------------------------------------**********");
         openDialog.dismiss();
         itemAdapter.notifyDataSetChanged();
 
@@ -326,7 +326,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
     private void gridViewSetting(GridView gridview) {
 
         int size = categoryWiseItemList.size();
-        // Log.e("Size : ", "----------" + size);
+        // //Log.e("Size : ", "----------" + size);
         // Calculated single Item Layout Width for each grid element ....
         int width = 130;//400
 
@@ -338,7 +338,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
         float density = dm.density;
 
         int totalWidth = (int) (width * size * density);
-        //  Log.e("Total Width : ", "----------" + totalWidth);
+        //  //Log.e("Total Width : ", "----------" + totalWidth);
         int singleItemWidth = (int) (width * density);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -364,7 +364,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             ArrayList<CategoryItemModel> data = response.body();
                             if (data == null) {
@@ -394,11 +394,11 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -406,7 +406,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void onFailure(Call<ArrayList<CategoryItemModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -539,7 +539,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
 
                     ParcelOrderHeaderModel headerModel = new ParcelOrderHeaderModel(0, userId, edName.getText().toString(), edMobile.getText().toString(), 2, sdf.format(calendar.getTimeInMillis()), sdf1.format(calendar.getTimeInMillis()), 1, orderDetailArray);
 
-                    Log.e("BEAN : ", "--------------------" + headerModel);
+                    //Log.e("BEAN : ", "--------------------" + headerModel);
                     saveParcelOrder(headerModel, discount);
                     openDialog.dismiss();
 
@@ -564,7 +564,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Order Data : ", "------------" + response.body());
+                            //Log.e("Order Data : ", "------------" + response.body());
 
                             ParcelOrderHeaderModel data = response.body();
                             if (data == null) {
@@ -587,11 +587,11 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -599,7 +599,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                 @Override
                 public void onFailure(Call<ParcelOrderHeaderModel> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -622,7 +622,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                     try {
                         if (response.body() != null) {
 
-                            Log.e("parcel generate bill : ", "------------" + response.body());
+                            //Log.e("parcel generate bill : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -643,12 +643,12 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                         } else {
                             Toast.makeText(ParcelMenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(ParcelMenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -657,7 +657,7 @@ public class ParcelMenuActivity extends AppCompatActivity implements View.OnClic
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     Toast.makeText(ParcelMenuActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

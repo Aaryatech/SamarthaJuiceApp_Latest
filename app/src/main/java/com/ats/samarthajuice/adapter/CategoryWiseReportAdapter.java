@@ -51,7 +51,7 @@ public class CategoryWiseReportAdapter extends RecyclerView.Adapter<CategoryWise
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final CategoryWiseReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvRate.setVisibility(View.GONE);
 

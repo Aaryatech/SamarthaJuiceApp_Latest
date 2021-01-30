@@ -60,7 +60,7 @@ public class VerifyOrderAdapter extends RecyclerView.Adapter<VerifyOrderAdapter.
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Item item = itemList.get(position);
-        Log.e("Adapter : ", " model : " + item);
+        //Log.e("Adapter : ", " model : " + item);
 
         holder.tvItem.setText(item.getItemName());
         holder.tvRate.setText("" + item.getMrpRegular());

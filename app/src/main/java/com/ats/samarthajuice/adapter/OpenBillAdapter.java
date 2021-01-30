@@ -60,7 +60,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
     public void onBindViewHolder(@NonNull OpenBillAdapter.MyViewHolder holder, int position) {
         final BillHeaderModel model = billHeaderList.get(position);
 
-            Log.e("Adapter : ", " model : " + model);
+            //Log.e("Adapter : ", " model : " + model);
 
             holder.tvDate.setText(model.getBillDate());
             holder.tvCustomer.setText("NAME : " + model.getName());
@@ -130,7 +130,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
 //                            ft.commit();
 
 
-                            Log.e("BillHeaderModelCard","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelCard","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 
                         }else if(menuItem.getItemId() == R.id.action_googlePay){
 
@@ -138,7 +138,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),2,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
 
-                            Log.e("BillHeaderModelGoogle","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelGoogle","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
                            // refreshEvents(billHeaderList);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
@@ -150,7 +150,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             // PdfData(model.getQuotHeadId());
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),3,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModelPayTm","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelPayTm","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -160,7 +160,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
 
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),4,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModelcash","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelcash","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -171,7 +171,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             // PdfData(model.getQuotHeadId());
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),5,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModelFood","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelFood","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -182,7 +182,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             // PdfData(model.getQuotHeadId());
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),6,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModelawiggy","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelawiggy","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -193,7 +193,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             // PdfData(model.getQuotHeadId());
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),7,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModeluber","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModeluber","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -204,7 +204,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                             // PdfData(model.getQuotHeadId());
                             BillHeaderModel billHeaderModel=new BillHeaderModel(model.getBillId(),dateBill,model.getDelStatus(),model.getUserId(),model.getEnterBy(),1,model.getDiscount(),model.getGrandTotal(),model.getPayableAmt(),model.getTableNo(),model.getBillNo(),8,model.getCgst(),model.getSgst(),model.getTaxableAmount(),model.getName(),model.getMobileNo(),detailList1);
                             updateStatus(billHeaderModel);
-                            Log.e("BillHeaderModelzomato","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+                            //Log.e("BillHeaderModelzomato","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
 //                            HomeActivity activity = (HomeActivity) context;
 //                            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 //                            ft.replace(R.id.content_frame, new OpenBillFragment(), "HomeFragment");
@@ -229,7 +229,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
     }
 
     private void updateStatus(BillHeaderModel billHeaderModel) {
-        Log.e("Para BillHeaderModel","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
+        //Log.e("Para BillHeaderModel","------------------------------------BillHeaderModel-----------------"+billHeaderModel);
         if (Constants.isOnline(context)) {
             final CommonDialog commonDialog = new CommonDialog(context, "Loading", "Please Wait...");
             commonDialog.show();
@@ -241,7 +241,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Update satus bill : ", "------------" + response.body());
+                            //Log.e("Update satus bill : ", "------------" + response.body());
 
                             BillHeaderModel data = response.body();
                             if (data == null) {
@@ -259,11 +259,11 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -271,7 +271,7 @@ public class OpenBillAdapter extends RecyclerView.Adapter<OpenBillAdapter.MyView
                 @Override
                 public void onFailure(Call<BillHeaderModel> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

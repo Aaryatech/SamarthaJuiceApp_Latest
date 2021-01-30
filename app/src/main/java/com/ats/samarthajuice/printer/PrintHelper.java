@@ -1,9 +1,14 @@
 package com.ats.samarthajuice.printer;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.ats.samarthajuice.activity.SplashActivity;
 import com.ats.samarthajuice.model.BillDetail;
 import com.ats.samarthajuice.model.BillHeaderModel;
 import com.ats.samarthajuice.model.OrderDetails;
@@ -13,10 +18,12 @@ import com.ats.samarthajuice.model.ParcelOrderDetails;
 import com.ats.samarthajuice.model.ParcelOrderHeaderModel;
 import com.ats.samarthajuice.R;
 import com.ats.samarthajuice.model.TaxableDataForBillPrint;
+import com.ats.samarthajuice.util.CustomSharedPreference;
 import com.epson.epos2.Epos2Exception;
 import com.epson.epos2.printer.Printer;
 import com.epson.epos2.printer.PrinterStatusInfo;
 import com.epson.epos2.printer.ReceiveListener;
+import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +32,10 @@ import java.util.Date;
 import java.util.TreeSet;
 
 public class PrintHelper implements ReceiveListener {
+
+    private static final int REQUEST_PERMISSION = 100;
+    private static final int DISCONNECT_INTERVAL = 500;//millseconds
+
 
     Activity activity;
     String printerAddress;
@@ -69,6 +80,7 @@ public class PrintHelper implements ReceiveListener {
         this.activity = activity;
         this.printerAddress = printerAddress;
         this.modelConstant = Printer.TM_M30;
+       //this.modelConstant = Printer.TM_T82;
         this.orderDisplays = orderDisplay;
         this.orderDetails = orderDetails;
         this.tableName = tableName;
@@ -271,16 +283,7 @@ public class PrintHelper implements ReceiveListener {
             }
 
             textData.append("-------------------------------------");
-            /*String remark ="Remark :- " + orderItems.get(0).getRemark().replaceAll("(.{30})(?!$)", "$1#");
-           // textData.append("Remark :- " + orderItems.get(0).getRemark());
-            String [] strArray= remark.split("#");
-            for(int i=0;i<strArray.length;i++)
-            {
-                textData.append(""+strArray[i]+ "\n");
-                Log.e("Remark "+i,"----------------"+strArray[i]);
-            }
 
-*/
             textData.append("\n");
 
             mPrinter.addText(textData.toString());
@@ -297,169 +300,6 @@ public class PrintHelper implements ReceiveListener {
         return true;
     }
 
-/*
-    private boolean createBillReceipt(ArrayList<OrderHeaderModel> orderHeaderModels, String tableName, float discount, String bill) {
-        String method = "";
-        StringBuilder textData = new StringBuilder();
-
-        try {
-            ArrayList<OrderDetailsList> orderItems = new ArrayList<>();
-            for (int i = 0; i < orderHeaderModels.size(); i++) {
-                orderItems.addAll(orderHeaderModels.get(i).getOrderDetailsList());
-            }
-
-            method = "addTextAlign";
-            mPrinter.addTextAlign(Printer.ALIGN_CENTER);
-            method = "addFeedLine";
-            mPrinter.addFeedLine(1);
-            String date = orderHeaderModels.get(0).getOrderDate();
-            textData.append("\t\t\bSamarth Juice Center\n");
-            mPrinter.addTextAlign(Printer.ALIGN_LEFT);
-
-            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
-            Calendar calendar = Calendar.getInstance();
-
-            textData.append("Date :- " + date + "  " + sdf.format(calendar.getTimeInMillis()) + "\n");
-            textData.append("Invoice No :- " + bill + "\n");
-            textData.append("Table No :- " + tableName + "\n\n");
-
-            Log.e("OrderItems : ", "-----------" + orderItems.toString());
-
-            textData.append("Item");
-            for (int i = 0; i < 16; i++) {
-                textData.append(" ");
-            }
-            textData.append("   Qty");
-            textData.append("     Rate");
-            textData.append("    Amount\n");
-
-            for (int i = 0; i < 45; i++) {
-                textData.append("-");
-            }
-            textData.append("\n");
-
-            mPrinter.addTextStyle(Printer.FALSE, Printer.FALSE, Printer.TRUE, Printer.COLOR_1);
-
-            double billTotal = 0;
-
-            for (int i = 0; i < orderItems.size(); i++) {
-                if (orderItems.get(i).getStatus() == 1) {
-
-                    String strName = orderItems.get(i).getItemName();
-                    if (strName.length() >= 20) {
-                        String itemName = orderItems.get(i).getItemName().substring(0, 20);
-                        textData.append(itemName);
-
-                    } else if (strName.length() < 20) {
-                        textData.append(strName);
-                        int difference = 20 - strName.length();
-
-                        for (int d = 0; d < difference; d++) {
-                            textData.append(" ");
-                        }
-                    }
-
-                    String qty = String.valueOf(orderItems.get(i).getQuantity());
-                    double totalDouble = orderItems.get(i).getRate() * orderItems.get(i).getQuantity();
-                    //String rate = String.valueOf(rateDouble);
-                    String total = String.format("%.1f", totalDouble);
-                    String rate = String.valueOf(orderItems.get(i).getRate());
-
-                    billTotal = billTotal + totalDouble;
-
-
-                    try {
-
-                        textData.append("   " + qty);
-                        int difference = 3 - qty.length();
-                        for (int d = 0; d < difference; d++) {
-                            textData.append(" ");
-                        }
-
-                        textData.append("   ");
-
-                        difference = 6 - rate.length();
-                        for (int d = 0; d < difference; d++) {
-                            textData.append(" ");
-                        }
-                        textData.append("" + rate);
-
-                        textData.append("   ");
-
-                        difference = 7 - total.length();
-                        for (int d = 0; d < difference; d++) {
-                            textData.append(" ");
-                        }
-                        textData.append("" + total + "\n");
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-
-            for (int i = 0; i < 45; i++) {
-                textData.append("-");
-            }
-            textData.append("\n");
-
-            String bTot = "Total : " + String.format("%.2f", billTotal);
-            int difference = 45 - bTot.length();
-            for (int d = 0; d < difference; d++) {
-                textData.append(" ");
-            }
-            textData.append(bTot + "\n");
-
-            String disc = "Discount : " + discount + " %";
-            difference = 45 - disc.length();
-            for (int d = 0; d < difference; d++) {
-                textData.append(" ");
-            }
-            textData.append(disc + "\n");
-
-            for (int i = 0; i < 45; i++) {
-                textData.append("-");
-            }
-            textData.append("\n");
-
-            double discAmt = ((billTotal * discount) / 100);
-            double temp = billTotal - discAmt;
-
-            String grandTotal = "GRAND TOTAL : " + String.format("%.2f", temp);
-            difference = 45 - grandTotal.length();
-            for (int d = 0; d < difference; d++) {
-                textData.append(" ");
-            }
-            textData.append(grandTotal + "\n");
-
-            for (int i = 0; i < 45; i++) {
-                textData.append("-");
-            }
-            textData.append("\n");
-
-            // textData.append("GSTNo : 27ABGPJ9389N1ZP\n\n\n");
-
-           */
-/* for(int i=0;i<2;i++) {
-                mPrinter.addText(textData.toString());
-                Log.e("Print --", "\n\n" + textData.toString());
-                mPrinter.addCut(Printer.CUT_FEED);
-            }*//*
-
-            mPrinter.addText(textData.toString());
-            Log.e("p\n", "\n\n" + textData.toString());
-            mPrinter.addCut(Printer.CUT_FEED);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            ShowMsg.showException(e, method, activity, false);
-            return false;
-        }
-        return true;
-    }
-*/
 
 
     private boolean createBillReceipt(ArrayList<OrderHeaderModel> orderHeaderModels, String tableName, float discount, String bill, ArrayList<TaxableDataForBillPrint> taxData) {
@@ -696,32 +536,13 @@ public class PrintHelper implements ReceiveListener {
             }
             textData.append(bTot + "\n");
 
-            /*String disc = "Discount : " + discount + " %";
-            difference = 45 - disc.length();
-            for (int d = 0; d < difference; d++) {
-                textData.append(" ");
-            }
-            textData.append(disc + "\n");*/
 
             for (int i = 0; i < 45; i++) {
                 textData.append("-");
             }
             textData.append("\n");
 
-           /* double discAmt = ((billTotal * discount) / 100);
-            double temp = billTotal - discAmt;
 
-            String grandTotal = "GRAND TOTAL : " + String.format("%.2f", temp);
-            difference = 45 - grandTotal.length();
-            for (int d = 0; d < difference; d++) {
-                textData.append(" ");
-            }
-            textData.append(grandTotal + "\n");
-
-            for (int i = 0; i < 45; i++) {
-                textData.append("-");
-            }
-            textData.append("\n");*/
 
 
             mPrinter.addText(textData.toString());
@@ -1726,10 +1547,54 @@ public class PrintHelper implements ReceiveListener {
         }
 
         if (!connectPrinter()) {
+            mPrinter.clearCommandBuffer();
+
+
+            Gson gson = new Gson();
+            String json = gson.toJson(orderDisplays);
+            String jsonOrderDetails = gson.toJson(orderDetails);
+
+            Log.e("SAVE","////////////////////////////////////////////////   "+orderDisplays);
+            Log.e("SAVE","////////////////////////////////////////////////   "+json);
+
+            CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_DISPLAY, json);
+            CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_DETAILS, jsonOrderDetails);
+            CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_TABLE_NAME, tableName);
+
+            //createKOTReceipt(orderDisplays, orderDetails, tableName);
+
+            Intent mStartActivity = new Intent(activity, SplashActivity.class);
+            int mPendingIntentId = 123456;
+            PendingIntent mPendingIntent = PendingIntent.getActivity(activity, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+            AlarmManager mgr = (AlarmManager)activity.getSystemService(Context.ALARM_SERVICE);
+            mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 10, mPendingIntent);
+            System.exit(0);
+
+
             return false;
         }
 
-        PrinterStatusInfo status = mPrinter.getStatus();
+        try {
+            mPrinter.sendData(Printer.PARAM_DEFAULT);
+        }
+        catch (Exception e) {
+            mPrinter.clearCommandBuffer();
+            ShowMsg.showException(e, "sendData", activity, false);
+            try {
+                mPrinter.disconnect();
+            }
+            catch (Exception ex) {
+                // Do nothing
+            }
+            return false;
+        }
+
+        CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_DISPLAY, "");
+        CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_DETAILS, "");
+        CustomSharedPreference.putString(activity, CustomSharedPreference.KEY_BUFF_ORDER_TABLE_NAME, "");
+
+
+       /* PrinterStatusInfo status = mPrinter.getStatus();
         if (!isPrintable(status)) {
             ShowMsg.showMsg(makeErrorMessage(status), activity, false);
             try {
@@ -1751,7 +1616,7 @@ public class PrintHelper implements ReceiveListener {
             }
             return false;
         }
-
+*/
         return true;
     }
 
@@ -1760,12 +1625,6 @@ public class PrintHelper implements ReceiveListener {
             mPrinter = new Printer(modelConstant,
                     Printer.MODEL_ANK,
                     activity);
-        } catch (UnsatisfiedLinkError e) {
-            Log.e("UnsatisfiedLinkError", "-----initializeObject" + e.getMessage());
-            Toast.makeText(activity, "Please Check Printer IP, Printer Must Be In Same Network", Toast.LENGTH_SHORT).show();
-        } catch (NoClassDefFoundError e) {
-            Log.e("NoClassDefFoundError", "-----initializeObject" + e.getMessage());
-            Toast.makeText(activity, "Please Check Printer IP, Printer Must Be In Same Network", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e("initializeObject", "-----------------------------------------------------------------");
             ShowMsg.showException(e, "Printer", activity, false);
@@ -1773,6 +1632,27 @@ public class PrintHelper implements ReceiveListener {
         }
 
         mPrinter.setReceiveEventListener(this);
+
+      /* mPrinter.setReceiveEventListener(new com.epson.epos2.printer.ReceiveListener() {
+            @Override
+            public void onPtrReceive(Printer printer, int i, PrinterStatusInfo printerStatusInfo, String s) {
+
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public synchronized void run() {
+                        disconnectPrinter();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                disconnectPrinter();
+                            }
+                        }).start();
+                    }
+                });
+            }
+        });*/
+
+
         return true;
     }
 
@@ -1783,13 +1663,13 @@ public class PrintHelper implements ReceiveListener {
         if (mPrinter == null) {
             return;
         }
-        mPrinter.clearCommandBuffer();
+
         mPrinter.setReceiveEventListener(null);
+
         mPrinter = null;
     }
 
     private boolean connectPrinter() {
-        Log.e("connectPrinter", "----------------------------");
         boolean isBeginTransaction = false;
 
         if (mPrinter == null) {
@@ -1797,17 +1677,24 @@ public class PrintHelper implements ReceiveListener {
         }
 
         try {
+            Log.e("connectPrinter", "---------------mPrinter-------------" + mPrinter);
             Log.e("connectPrinter", "----------------------------printerAddress" + printerAddress);
+
             mPrinter.connect(printerAddress, Printer.PARAM_DEFAULT);
-        } catch (Exception e) {
+
+        } catch (Epos2Exception e){
+            Log.e("connectPrinter", "--------Epos2Exception--------------------showException  --> " + e.getMessage()+"    "+e.getErrorStatus());
+            e.printStackTrace();
+            ShowMsg.showException(e, "connect", activity, false);
+            return false;
+        }catch (Exception e) {
             Log.e("connectPrinter", "----------------------------showException" + e.getMessage());
             e.printStackTrace();
-            Log.e("connectPrinter", "---------------------------------------------------------------------------");
             ShowMsg.showException(e, "connect", activity, false);
             return false;
         }
 
-        try {
+      /*  try {
             mPrinter.beginTransaction();
             isBeginTransaction = true;
         } catch (Exception e) {
@@ -1823,17 +1710,52 @@ public class PrintHelper implements ReceiveListener {
                 // Do nothing
                 return false;
             }
-        }
+        }*/
 
         return true;
     }
+
+
 
     private void disconnectPrinter() {
         if (mPrinter == null) {
             return;
         }
 
-        try {
+
+        while (true) {
+            try {
+                mPrinter.disconnect();
+                break;
+            } catch (final Exception e) {
+                if (e instanceof Epos2Exception) {
+                    //Note: If printer is processing such as printing and so on, the disconnect API returns ERR_PROCESSING.
+                    if (((Epos2Exception) e).getErrorStatus() == Epos2Exception.ERR_PROCESSING) {
+                        try {
+                            Thread.sleep(DISCONNECT_INTERVAL);
+                        } catch (Exception ex) {
+                        }
+                    }else{
+                        activity.runOnUiThread(new Runnable() {
+                            public synchronized void run() {
+                                ShowMsg.showException(e, "endTransaction", activity, false);
+                            }
+                        });
+                        break;
+                    }
+                }else{
+                    activity.runOnUiThread(new Runnable() {
+                        public synchronized void run() {
+                            ShowMsg.showException(e, "endTransaction", activity, false);
+                        }
+                    });
+                    break;
+                }
+            }
+        }
+
+
+      /*  try {
             mPrinter.endTransaction();
         } catch (final Exception e) {
             activity.runOnUiThread(new Runnable() {
@@ -1855,9 +1777,9 @@ public class PrintHelper implements ReceiveListener {
                     ShowMsg.showException(e, "disconnect", activity, false);
                 }
             });
-        }
+        }*/
 
-        finalizeObject();
+        mPrinter.clearCommandBuffer();
     }
 
     private boolean isPrintable(PrinterStatusInfo status) {
@@ -1930,8 +1852,8 @@ public class PrintHelper implements ReceiveListener {
         activity.runOnUiThread(new Runnable() {
             @Override
             public synchronized void run() {
-                Log.e("onPtrReceive", "---------------------------------------------------------------------------");
                 ShowMsg.showResult(code, makeErrorMessage(status), activity, false);
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -1940,6 +1862,28 @@ public class PrintHelper implements ReceiveListener {
                 }).start();
             }
         });
+
+
+        /*activity.runOnUiThread(new Runnable() {
+            @Override
+            public synchronized void run() {
+                Log.e("onPtrReceive", "---------------------------------------------------------------------------");
+                ShowMsg.showResult(code, makeErrorMessage(status), activity, false);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //disconnectPrinter();
+                        try {
+                            printerObj.endTransaction();
+                            printerObj.disconnect();
+                            printerObj.clearCommandBuffer();
+                        } catch (Epos2Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });*/
     }
 
 }

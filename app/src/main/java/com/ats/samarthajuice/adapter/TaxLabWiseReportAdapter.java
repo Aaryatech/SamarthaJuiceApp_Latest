@@ -48,7 +48,7 @@ public class TaxLabWiseReportAdapter extends RecyclerView.Adapter<TaxLabWiseRepo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final TaxLabWiseReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvTax.setText("" + model.getTax());
         holder.tvTotalTax.setText("" + model.getTotalTax());

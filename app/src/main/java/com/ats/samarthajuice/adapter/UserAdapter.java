@@ -69,7 +69,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final AdminModel model = userList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvName.setText(model.getUsername());
         holder.tvPass.setText(model.getPassword());
@@ -154,7 +154,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -174,12 +174,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -188,7 +188,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

@@ -35,14 +35,21 @@ import com.ats.samarthajuice.fragment.TableMasterFragment;
 import com.ats.samarthajuice.fragment.UserMasterFragment;
 import com.ats.samarthajuice.fragment.ViewBillsFragment;
 import com.ats.samarthajuice.model.Admin;
+import com.ats.samarthajuice.model.OrderDetails;
+import com.ats.samarthajuice.model.OrderHeaderModel;
+import com.ats.samarthajuice.printer.PrintHelper;
+import com.ats.samarthajuice.printer.PrintReceiptType;
 import com.ats.samarthajuice.util.CustomSharedPreference;
 import com.ats.samarthajuice.R;
 import com.ats.samarthajuice.fragment.AddTableFragment;
 import com.ats.samarthajuice.fragment.AddUserFragment;
 import com.ats.samarthajuice.fragment.ReportsFragment;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -66,7 +73,7 @@ public class HomeActivity extends AppCompatActivity
         String jsonAdmin = CustomSharedPreference.getString(this, CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -87,7 +94,7 @@ public class HomeActivity extends AppCompatActivity
             finish();
         } else {
             userType = admin.getType();
-            Log.e("USER TYPE : ", "------------------" + userType);
+            //Log.e("USER TYPE : ", "------------------" + userType);
             hideItem();
 
         }
@@ -97,6 +104,8 @@ public class HomeActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, new HomeFragment(), "Home");
             ft.commit();
+
+
         }
 
         createFolder();

@@ -87,7 +87,7 @@ public class MenuItemForSearchAdapter extends BaseAdapter implements Filterable 
 
         holder.tvItem.setText(itemList.get(position).getItemName());
         holder.tvRate.setText("" + itemList.get(position).getMrpRegular());
-        holder.imageView.setVisibility(View.INVISIBLE);
+        holder.imageView.setVisibility(View.GONE);
        /* if (itemList.get(position).getQty() == 0) {
             holder.tvQty.setText("");
         } else {
@@ -147,7 +147,7 @@ public class MenuItemForSearchAdapter extends BaseAdapter implements Filterable 
                         View view = inflater1.inflate(R.layout.adapter_quantity, parent, false);
                         TextView tvQty = view.findViewById(R.id.tvQtyItem);
 
-                        Log.e("Item Pos","--------------------------------------"+intArray.get(position));
+                        //Log.e("Item Pos","--------------------------------------"+intArray.get(position));
 
                         tvQty.setText("" + intArray.get(position));
                         return view;

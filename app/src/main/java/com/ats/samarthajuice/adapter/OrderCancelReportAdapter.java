@@ -50,7 +50,7 @@ public class OrderCancelReportAdapter extends RecyclerView.Adapter<OrderCancelRe
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final OrderCancelReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvOrder.setText("" + model.getOrderId());
         holder.tvItem.setText("" + model.getItemName());

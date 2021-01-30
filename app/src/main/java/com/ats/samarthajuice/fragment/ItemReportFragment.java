@@ -276,7 +276,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("item report Data : ", "------------" + response.body());
+                            //Log.e("item report Data : ", "------------" + response.body());
 
                             ArrayList<ItemReportModel> data = response.body();
                             if (data == null) {
@@ -296,11 +296,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -308,7 +308,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<ItemReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -330,7 +330,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("item report Data : ", "------------" + response.body());
+                            //Log.e("item report Data : ", "------------" + response.body());
 
                             ArrayList<CategoryWiseReportModel> data = response.body();
                             if (data == null) {
@@ -350,11 +350,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -362,7 +362,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<CategoryWiseReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -384,7 +384,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("item report Data : ", "------------" + response.body());
+                            //Log.e("item report Data : ", "------------" + response.body());
 
                             ArrayList<BillWiseReportModel> data = response.body();
                             if (data == null) {
@@ -404,11 +404,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -416,7 +416,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<BillWiseReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -438,7 +438,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("item HSN Data : ", "------------" + response.body());
+                            //Log.e("item HSN Data : ", "------------" + response.body());
 
                             ArrayList<ItemHSNCodeReportModel> data = response.body();
                             if (data == null) {
@@ -458,11 +458,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -470,7 +470,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<ItemHSNCodeReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -492,7 +492,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<DateWiseReportModel> data = response.body();
                             if (data == null) {
@@ -512,11 +512,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -524,7 +524,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<DateWiseReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -546,7 +546,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<MonthWiseBillReportModel> data = response.body();
                             if (data == null) {
@@ -566,11 +566,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -578,7 +578,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<MonthWiseBillReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -600,7 +600,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<TableWiseReportModel> data = response.body();
                             if (data == null) {
@@ -620,11 +620,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -632,7 +632,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TableWiseReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -654,7 +654,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<BillWiseTaxReportModel> data = response.body();
                             if (data == null) {
@@ -674,11 +674,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -686,7 +686,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<BillWiseTaxReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -708,7 +708,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<BillWiseTaxReportModel> data = response.body();
                             if (data == null) {
@@ -728,11 +728,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -740,7 +740,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<BillWiseTaxReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -762,7 +762,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<TaxLabWiseReportModel> data = response.body();
                             if (data == null) {
@@ -782,11 +782,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -794,7 +794,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TaxLabWiseReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -816,7 +816,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<OrderCancelReportModel> data = response.body();
                             if (data == null) {
@@ -836,11 +836,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -848,7 +848,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<OrderCancelReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -870,7 +870,7 @@ public class ItemReportFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data : ", "------------" + response.body());
+                            //Log.e("bill Data : ", "------------" + response.body());
 
                             ArrayList<ItemCancelReportModel> data = response.body();
                             if (data == null) {
@@ -890,11 +890,11 @@ public class ItemReportFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -902,7 +902,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<ItemCancelReportModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -1482,7 +1482,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -1746,7 +1746,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -2023,7 +2023,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -2314,7 +2314,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -2549,7 +2549,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -2814,7 +2814,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -3062,7 +3062,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -3320,7 +3320,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -3552,7 +3552,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -3775,7 +3775,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -3976,7 +3976,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -4223,7 +4223,7 @@ public class ItemReportFragment extends Fragment {
 
             } catch (DocumentException de) {
                 commonDialog.dismiss();
-                //Log.e("PDFCreator", "DocumentException:" + de);
+                ////Log.e("PDFCreator", "DocumentException:" + de);
                 Toast.makeText(getActivity(), "Unable To Generate Bill", Toast.LENGTH_SHORT).show();
             } finally {
                 doc.close();
@@ -4393,13 +4393,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -4407,7 +4407,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -4558,13 +4558,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -4572,7 +4572,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -4735,13 +4735,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -4749,7 +4749,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -4932,13 +4932,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -4946,7 +4946,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5091,13 +5091,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5105,7 +5105,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5270,13 +5270,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5284,7 +5284,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5437,13 +5437,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5451,7 +5451,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5614,13 +5614,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5628,7 +5628,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5772,13 +5772,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5786,7 +5786,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -5940,13 +5940,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -5954,7 +5954,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -6093,13 +6093,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -6107,7 +6107,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -6245,13 +6245,13 @@ public class ItemReportFragment extends Fragment {
             try {
                 os = new FileOutputStream(file);
                 wb.write(os);
-                Log.e("FileUtils", "Writing file" + file);
+                //Log.e("FileUtils", "Writing file" + file);
             } catch (IOException e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Error writing " + file, e);
+                //Log.e("FileUtils", "Error writing " + file, e);
             } catch (Exception e) {
                 commonDialog.dismiss();
-                Log.e("FileUtils", "Failed to save file", e);
+                //Log.e("FileUtils", "Failed to save file", e);
             } finally {
                 try {
                     if (null != os)
@@ -6259,7 +6259,7 @@ public class ItemReportFragment extends Fragment {
 
                     if (file.exists()) {
                         commonDialog.dismiss();
-                        Log.e("EXCEL", "----------------------------------------------");
+                        //Log.e("EXCEL", "----------------------------------------------");
                         Intent intent = new Intent(Intent.ACTION_VIEW);
 
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -6293,7 +6293,7 @@ public class ItemReportFragment extends Fragment {
 
     public void getTaxDataForPrint(String fromDate,String toDate) {
 
-        Log.e("PARAM "," ------------------ "+fromDate+"    to    "+toDate);
+        //Log.e("PARAM "," ------------------ "+fromDate+"    to    "+toDate);
 
         if (Constants.isOnline(getContext())) {
             final CommonDialog commonDialog = new CommonDialog(getContext(), "Loading", "Please Wait...");
@@ -6304,7 +6304,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onResponse(Call<ArrayList<TaxableDataForBillPrint>> call, Response<ArrayList<TaxableDataForBillPrint>> response) {
                     try {
-                        Log.e("Taxable Data : ", "------------" + response.body());
+                        //Log.e("Taxable Data : ", "------------" + response.body());
                         if (response.body() != null) {
 
 
@@ -6322,12 +6322,12 @@ public class ItemReportFragment extends Fragment {
                             commonDialog.dismiss();
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
 
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
 
 
@@ -6337,7 +6337,7 @@ public class ItemReportFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TaxableDataForBillPrint>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
 
                 }

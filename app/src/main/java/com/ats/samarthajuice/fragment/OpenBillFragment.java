@@ -79,7 +79,7 @@ public class OpenBillFragment extends Fragment implements View.OnClickListener {
         Date todayDate = Calendar.getInstance().getTime();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         String currentDate = formatter.format(todayDate);
-        Log.e("Mytag","todayString"+currentDate);
+        //Log.e("Mytag","todayString"+currentDate);
 
         SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy");
@@ -125,7 +125,7 @@ public class OpenBillFragment extends Fragment implements View.OnClickListener {
 
 
 
-        Log.e("PARAMETERS : ", "        DATE : " + dateTo + "      TYPE : " + type+ "      BILL : " + billClose);
+        //Log.e("PARAMETERS : ", "        DATE : " + dateTo + "      TYPE : " + type+ "      BILL : " + billClose);
 
         if (Constants.isOnline(getContext())) {
             final CommonDialog commonDialog = new CommonDialog(getContext(), "Loading", "Please Wait...");
@@ -138,7 +138,7 @@ public class OpenBillFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data Open : ", "------------" + response.body());
+                            //Log.e("bill Data Open : ", "------------" + response.body());
 
                             ArrayList<BillHeaderModel> data = response.body();
                             if (data == null) {
@@ -158,11 +158,11 @@ public class OpenBillFragment extends Fragment implements View.OnClickListener {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -170,7 +170,7 @@ public class OpenBillFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onFailure(Call<ArrayList<BillHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

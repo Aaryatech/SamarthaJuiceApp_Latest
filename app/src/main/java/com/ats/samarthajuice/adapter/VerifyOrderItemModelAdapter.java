@@ -60,18 +60,18 @@ public class VerifyOrderItemModelAdapter extends RecyclerView.Adapter<VerifyOrde
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ItemModel item = itemList.get(position);
-        Log.e("Adapter : ", " model : " + item);
+        //Log.e("Adapter : ", " model : " + item);
 
         holder.tvItem.setText(item.getItemName());
         holder.tvRate.setText("" + item.getMrpRegular());
         holder.tvQty.setText("" + item.getQty());
 
 //        if (item.isCancelStatus()) {
-//            Log.e("Visible","---------------------------------");
+//            //Log.e("Visible","---------------------------------");
 //            holder.imageView.setVisibility(View.VISIBLE);
 //        } else {
 //            holder.imageView.setVisibility(View.INVISIBLE);
-//            Log.e("InVisible","---------------------------------");
+//            //Log.e("InVisible","---------------------------------");
 //        }
 
         if (position%2==0){

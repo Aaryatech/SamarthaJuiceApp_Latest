@@ -49,7 +49,7 @@ public class TableReportAdapter extends RecyclerView.Adapter<TableReportAdapter.
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final TableWiseReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvName.setText(model.getTableName());
         holder.tvTotal.setText("" + model.getTotal());

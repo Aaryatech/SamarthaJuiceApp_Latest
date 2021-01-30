@@ -50,10 +50,10 @@ public class AddTableCategoryFragment extends Fragment implements View.OnClickLi
         Gson gson = new Gson();
         TableCategoryModel model = gson.fromJson(str, TableCategoryModel.class);
 
-        Log.e("GSON", "--------------" + model);
+        //Log.e("GSON", "--------------" + model);
 
         if (model != null) {
-            Log.e("MODEL : ", "--------------" + model);
+            //Log.e("MODEL : ", "--------------" + model);
 
             tableCatId=model.getTableCatId();
             edName.setText(""+model.getTableCatName());
@@ -96,7 +96,7 @@ public class AddTableCategoryFragment extends Fragment implements View.OnClickLi
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             TableCategoryModel data = response.body();
                             if (data == null) {
@@ -115,12 +115,12 @@ public class AddTableCategoryFragment extends Fragment implements View.OnClickLi
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -129,7 +129,7 @@ public class AddTableCategoryFragment extends Fragment implements View.OnClickLi
                 public void onFailure(Call<TableCategoryModel> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

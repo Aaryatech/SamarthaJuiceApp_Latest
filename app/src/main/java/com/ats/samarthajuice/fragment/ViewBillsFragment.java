@@ -128,7 +128,7 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            //Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<TableModel> data = response.body();
                             if (data == null) {
@@ -158,12 +158,12 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "No category found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -172,7 +172,7 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                 public void onFailure(Call<ArrayList<TableModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "No category found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -222,7 +222,7 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                     try {
                         if (response.body() != null) {
 
-                            Log.e("bill Data View : ", "------------" + response.body());
+                            //Log.e("bill Data View : ", "------------" + response.body());
 
                             ArrayList<BillHeaderModel> data = response.body();
                             if (data == null) {
@@ -242,11 +242,11 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -254,7 +254,7 @@ public class ViewBillsFragment extends Fragment implements View.OnClickListener 
                 @Override
                 public void onFailure(Call<ArrayList<BillHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

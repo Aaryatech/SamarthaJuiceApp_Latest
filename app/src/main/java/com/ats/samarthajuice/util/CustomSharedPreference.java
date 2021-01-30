@@ -21,6 +21,12 @@ public class CustomSharedPreference {
     public static String KEY_KOT_PORT = "KOTPort";
 
 
+
+    public static String KEY_BUFF_ORDER_DISPLAY = "KEY_BUFF_ORDER_DISPLAY";
+    public static String KEY_BUFF_ORDER_DETAILS = "KEY_BUFF_ORDER_DETAILS";
+    public static String KEY_BUFF_ORDER_TABLE_NAME = "KEY_BUFF_ORDER_TABLE_NAME";
+
+
     public static List<String> lstAppData = new ArrayList<>();
 
     public static void putString(Context activity, String key, String value) {

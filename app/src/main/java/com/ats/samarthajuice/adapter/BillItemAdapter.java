@@ -47,7 +47,7 @@ public class BillItemAdapter extends RecyclerView.Adapter<BillItemAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final BillDetail model = orderItemList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
         holder.tvItem.setText("" + model.getItemName());
         holder.tvQty.setText("" + model.getQuantity());
         holder.tvRate.setText("" + model.getRate());

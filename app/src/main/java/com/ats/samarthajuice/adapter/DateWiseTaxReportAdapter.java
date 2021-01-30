@@ -50,7 +50,7 @@ public class DateWiseTaxReportAdapter extends RecyclerView.Adapter<DateWiseTaxRe
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final BillWiseTaxReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvBill.setVisibility(View.GONE);
 

@@ -83,7 +83,7 @@ public class ViewBillsAdapter extends RecyclerView.Adapter<ViewBillsAdapter.MyVi
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final BillHeaderModel model = billHeaderList.get(position);
 
-            Log.e("Adapter : ", " model : " + model);
+            //Log.e("Adapter : ", " model : " + model);
 
             holder.tvDate.setText(model.getBillDate());
             holder.tvCustomer.setText("NAME : " + model.getName());
@@ -179,7 +179,7 @@ public class ViewBillsAdapter extends RecyclerView.Adapter<ViewBillsAdapter.MyVi
         ArrayList<Integer> billIds=new ArrayList<>();
         billIds.add(billId);
 
-        Log.e("Taxable Data : ", "------PARAM------" + billId);
+        //Log.e("Taxable Data : ", "------PARAM------" + billId);
 
         if (Constants.isOnline(context)) {
             final CommonDialog commonDialog = new CommonDialog(context, "Loading", "Please Wait...");
@@ -190,7 +190,7 @@ public class ViewBillsAdapter extends RecyclerView.Adapter<ViewBillsAdapter.MyVi
                 @Override
                 public void onResponse(Call<ArrayList<TaxableDataForBillPrint>> call, Response<ArrayList<TaxableDataForBillPrint>> response) {
                     try {
-                        Log.e("Taxable Data : ", "------------" + response.body());
+                        //Log.e("Taxable Data : ", "------------" + response.body());
                         if (response.body() != null) {
 
 
@@ -208,11 +208,11 @@ public class ViewBillsAdapter extends RecyclerView.Adapter<ViewBillsAdapter.MyVi
                             commonDialog.dismiss();
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -220,7 +220,7 @@ public class ViewBillsAdapter extends RecyclerView.Adapter<ViewBillsAdapter.MyVi
                 @Override
                 public void onFailure(Call<ArrayList<TaxableDataForBillPrint>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
 
                 }

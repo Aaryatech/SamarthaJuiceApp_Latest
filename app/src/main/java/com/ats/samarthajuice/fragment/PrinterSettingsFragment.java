@@ -40,11 +40,11 @@ public class PrinterSettingsFragment extends Fragment implements View.OnClickLis
         String kotIp = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_KOT_IP);
 
         if (billIp != null) {
-            edBillIP.setText(billIp);
+            edBillIP.setText(billIp.substring(billIp.indexOf(":")+1));
         }
 
         if (kotIp != null) {
-            edKOTIP.setText(kotIp);
+            edKOTIP.setText(kotIp.substring(kotIp.indexOf(":")+1));
         }
 
         btnSave.setOnClickListener(this);
@@ -84,14 +84,14 @@ public class PrinterSettingsFragment extends Fragment implements View.OnClickLis
         } else if (v.getId() == R.id.btnTestBill) {
             try {
                 String ip = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_BILL_IP);
-                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,10);
+                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,10);//10=TM-T82
                 printHelper.runPrintReceiptSequence();
             } catch (Exception e) {
             }
         } else if (v.getId() == R.id.btnTestKOT) {
             try {
                 String ip = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_KOT_IP);
-                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,1);
+                PrintHelper printHelper = new PrintHelper(getActivity(), ip, PrintReceiptType.TEST,1);//1=TM_M30
                 printHelper.runPrintReceiptSequence();
             } catch (Exception e) {
             }

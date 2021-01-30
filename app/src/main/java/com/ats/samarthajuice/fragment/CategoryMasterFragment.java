@@ -79,7 +79,7 @@ public class CategoryMasterFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            //Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<CategoryModel> data = response.body();
                             if (data == null) {
@@ -98,12 +98,12 @@ public class CategoryMasterFragment extends Fragment {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -112,7 +112,7 @@ public class CategoryMasterFragment extends Fragment {
                 public void onFailure(Call<ArrayList<CategoryModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

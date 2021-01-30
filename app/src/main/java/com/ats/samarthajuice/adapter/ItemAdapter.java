@@ -205,7 +205,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
 
     public void deleteItem(int itemId) {
 
-        Log.e("PARAMETER","                  ITEM ID               "+itemId);
+        //Log.e("PARAMETER","                  ITEM ID               "+itemId);
         if (Constants.isOnline(context)) {
             final CommonDialog commonDialog = new CommonDialog(context, "Loading", "Please Wait...");
             commonDialog.show();
@@ -217,7 +217,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
 
@@ -240,12 +240,12 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -254,7 +254,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

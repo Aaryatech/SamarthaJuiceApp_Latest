@@ -215,7 +215,7 @@ public class CategoryAdapter extends BaseAdapter implements Filterable {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -235,12 +235,12 @@ public class CategoryAdapter extends BaseAdapter implements Filterable {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -249,7 +249,7 @@ public class CategoryAdapter extends BaseAdapter implements Filterable {
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(context, "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

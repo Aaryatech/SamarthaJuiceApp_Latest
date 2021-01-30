@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Login Data : ", "------------" + response.body());
+                            //Log.e("Login Data : ", "------------" + response.body());
 
                             LoginModel data = response.body();
                             if (data == null) {
@@ -96,12 +96,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Toast.makeText(LoginActivity.this, "Unable to login!", Toast.LENGTH_SHORT).show();
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         Toast.makeText(LoginActivity.this, "Unable to login!", Toast.LENGTH_SHORT).show();
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onFailure(Call<LoginModel> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(LoginActivity.this, "Unable to login!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

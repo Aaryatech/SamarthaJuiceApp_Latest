@@ -95,7 +95,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
         String jsonAdmin = CustomSharedPreference.getString(getContext(), CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         if (admin != null) {
             userId = admin.getAdminId();
@@ -127,10 +127,10 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
         Gson gson1 = new Gson();
         ItemModel model = gson1.fromJson(str, ItemModel.class);
 
-        Log.e("GSON", "--------------" + model);
+        //Log.e("GSON", "--------------" + model);
 
         if (model != null) {
-            Log.e("MODEL : ", "--------------" + model);
+            //Log.e("MODEL : ", "--------------" + model);
 
             itemId = model.getItemId();
 
@@ -267,7 +267,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            //Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<CategoryModel> data = response.body();
                             if (data == null) {
@@ -300,12 +300,12 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -314,7 +314,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                 public void onFailure(Call<ArrayList<CategoryModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -358,7 +358,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
 
                     }
                 } catch (Exception e) {
-                    ////Log.e("select camera : ", " Exception : " + e.getMessage());
+                    //////Log.e("select camera : ", " Exception : " + e.getMessage());
                 }
             }
         });
@@ -386,10 +386,10 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                         myBitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
                         out.flush();
                         out.close();
-                        Log.e("Image Saved  ", "---------------");
+                        //Log.e("Image Saved  ", "---------------");
 
                     } catch (Exception e) {
-                        Log.e("Exception : ", "--------" + e.getMessage());
+                        //Log.e("Exception : ", "--------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -415,16 +415,16 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                     myBitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
                     out.flush();
                     out.close();
-                    //Log.e("Image Saved  ", "---------------");
+                    ////Log.e("Image Saved  ", "---------------");
 
                 } catch (Exception e) {
-                    // Log.e("Exception : ", "--------" + e.getMessage());
+                    // //Log.e("Exception : ", "--------" + e.getMessage());
                     e.printStackTrace();
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
-                // Log.e("Image Compress : ", "-----Exception : ------" + e.getMessage());
+                // //Log.e("Image Compress : ", "-----Exception : ------" + e.getMessage());
             }
         }
     }
@@ -444,7 +444,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
         cursor.close();
 
         Bitmap bitm = shrinkBitmap(picturePath, 720, 720);
-        Log.e("Image Size : ---- ", " " + bitm.getByteCount());
+        //Log.e("Image Size : ---- ", " " + bitm.getByteCount());
 
         return bitm;
         // return BitmapFactory.decodeFile(picturePath, options);
@@ -491,12 +491,12 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                 commonDialog.dismiss();
                 saveItem(bean);
                 imagePath = "";
-                Log.e("Response : ", "--" + response.body());
+                //Log.e("Response : ", "--" + response.body());
             }
 
             @Override
             public void onFailure(Call<JSONObject> call, Throwable t) {
-                Log.e("Error : ", "--" + t.getMessage());
+                //Log.e("Error : ", "--" + t.getMessage());
                 commonDialog.dismiss();
                 t.printStackTrace();
                 Toast.makeText(getActivity(), "Unable To Process", Toast.LENGTH_SHORT).show();
@@ -516,7 +516,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Admin Data : ", "------------" + response.body());
+                            //Log.e("Admin Data : ", "------------" + response.body());
 
                             ItemModel data = response.body();
                             if (data == null) {
@@ -535,12 +535,12 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -549,7 +549,7 @@ public class AddItemFragment extends Fragment implements View.OnClickListener {
                 public void onFailure(Call<ItemModel> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

@@ -95,7 +95,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
         String jsonAdmin = CustomSharedPreference.getString(this, CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         if (admin != null) {
             userId = admin.getAdminId();
@@ -120,7 +120,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                     try {
                         if (response.body() != null) {
 
-                            Log.e("order Data : ", "------------" + response.body());
+                            //Log.e("order Data : ", "------------" + response.body());
 
                             ArrayList<OrderHeaderModel> data = response.body();
                             if (data == null) {
@@ -180,11 +180,11 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -192,7 +192,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                 @Override
                 public void onFailure(Call<ArrayList<OrderHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -269,7 +269,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                     try {
                         if (response.body() != null) {
 
-                            Log.e("generate bill : ", "------------" + response.body());
+                            //Log.e("generate bill : ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -293,10 +293,10 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                                             String billId=billData.substring(billData.indexOf('#')+1);
                                             int bId=Integer.parseInt(billId);
 
-                                            Log.e("DATA"," ------------------ "+data.getMessage());
+                                            //Log.e("DATA"," ------------------ "+data.getMessage());
 
-                                            Log.e("BILL NO"," ------------------ "+billNo);
-                                            Log.e("BILL ID"," ------------------ "+bId);
+                                            //Log.e("BILL NO"," ------------------ "+billNo);
+                                            //Log.e("BILL ID"," ------------------ "+bId);
 
                                             getTaxDataForBill(bId,billNo);
 
@@ -340,12 +340,12 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(GenerateBillActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(GenerateBillActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -354,7 +354,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(GenerateBillActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -369,7 +369,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
         ArrayList<Integer> billIds=new ArrayList<>();
         billIds.add(billId);
 
-        Log.e("Taxable Data : ", "------PARAM------" + billId);
+        //Log.e("Taxable Data : ", "------PARAM------" + billId);
 
         if (Constants.isOnline(this)) {
             final CommonDialog commonDialog = new CommonDialog(this, "Loading", "Please Wait...");
@@ -380,7 +380,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                 @Override
                 public void onResponse(Call<ArrayList<TaxableDataForBillPrint>> call, Response<ArrayList<TaxableDataForBillPrint>> response) {
                     try {
-                        Log.e("Taxable Data : ", "------------" + response.body());
+                        //Log.e("Taxable Data : ", "------------" + response.body());
                         if (response.body() != null) {
 
 
@@ -400,13 +400,13 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                             commonDialog.dismiss();
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                             startActivity(new Intent(GenerateBillActivity.this, HomeActivity.class));
                             finish();
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
 
                         startActivity(new Intent(GenerateBillActivity.this, HomeActivity.class));
@@ -417,7 +417,7 @@ public class GenerateBillActivity extends AppCompatActivity implements View.OnCl
                 @Override
                 public void onFailure(Call<ArrayList<TaxableDataForBillPrint>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
 
                     startActivity(new Intent(GenerateBillActivity.this, HomeActivity.class));

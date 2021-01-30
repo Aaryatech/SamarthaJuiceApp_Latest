@@ -99,7 +99,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("order Data : ", "------------" + response.body());
+                            //Log.e("order Data : ", "------------" + response.body());
 
                             ArrayList<OrderHeaderModel> data = response.body();
                             if (data == null) {
@@ -151,12 +151,12 @@ public class CancelOrderActivity extends AppCompatActivity {
                         } else {
                             commonDialog.dismiss();
                             btnCancelOrder.setVisibility(View.INVISIBLE);
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         btnCancelOrder.setVisibility(View.INVISIBLE);
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -165,7 +165,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                 public void onFailure(Call<ArrayList<OrderHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     btnCancelOrder.setVisibility(View.INVISIBLE);
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -175,7 +175,7 @@ public class CancelOrderActivity extends AppCompatActivity {
     }
 
     public void showCancelDialog(final ArrayList<Integer> orderDetailIdList) {
-        Log.e("CANCEL", "----------------" + MenuWithSearchActivity.orderDetailIdStaticList);
+        //Log.e("CANCEL", "----------------" + MenuWithSearchActivity.orderDetailIdStaticList);
 
         final Dialog openDialog = new Dialog(CancelOrderActivity.this);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -251,7 +251,7 @@ public class CancelOrderActivity extends AppCompatActivity {
     }
 
     public void cancelOrder(ArrayList<Integer> orderDetailIds, int status, String remark) {
-        Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
+        //Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
         if (Constants.isOnline(this)) {
             final CommonDialog commonDialog = new CommonDialog(this, "Loading", "Please Wait...");
             commonDialog.show();
@@ -263,7 +263,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("cancel order: ", "------------" + response.body());
+                            //Log.e("cancel order: ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -287,12 +287,12 @@ public class CancelOrderActivity extends AppCompatActivity {
                             Toast.makeText(CancelOrderActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         Toast.makeText(CancelOrderActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -301,7 +301,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     Toast.makeText(CancelOrderActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -324,7 +324,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("free Data : ", "------------" + response.body());
+                            //Log.e("free Data : ", "------------" + response.body());
 
                             ArrayList<CancelMessageModel> data = response.body();
                             if (data == null) {
@@ -341,12 +341,12 @@ public class CancelOrderActivity extends AppCompatActivity {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -354,7 +354,7 @@ public class CancelOrderActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<ArrayList<CancelMessageModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

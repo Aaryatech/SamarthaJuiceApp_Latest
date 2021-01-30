@@ -50,7 +50,7 @@ public class ItemWiseReportAdapter extends RecyclerView.Adapter<ItemWiseReportAd
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ItemReportModel model = reportList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvName.setText(model.getItemName());
         holder.tvQty.setText("" + model.getQuantity());

@@ -68,10 +68,10 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
         Gson gson = new Gson();
         AdminModel model = gson.fromJson(str, AdminModel.class);
 
-        Log.e("GSON", "--------------" + model);
+        //Log.e("GSON", "--------------" + model);
 
         if (model != null) {
-            Log.e("MODEL : ", "--------------" + model);
+            //Log.e("MODEL : ", "--------------" + model);
 
             adminId=model.getAdminId();
 
@@ -166,7 +166,7 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Admin Data : ", "------------" + response.body());
+                            //Log.e("Admin Data : ", "------------" + response.body());
 
                             AdminModel data = response.body();
                             if (data == null) {
@@ -185,12 +185,12 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -199,7 +199,7 @@ public class AddUserFragment extends Fragment implements View.OnClickListener {
                 public void onFailure(Call<AdminModel> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

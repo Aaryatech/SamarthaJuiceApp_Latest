@@ -99,7 +99,7 @@ public class CancelOrderFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("order Data : ", "------------" + response.body());
+                            //Log.e("order Data : ", "------------" + response.body());
 
                             ArrayList<OrderHeaderModel> data = response.body();
                             if (data == null) {
@@ -151,12 +151,12 @@ public class CancelOrderFragment extends Fragment {
                         } else {
                             commonDialog.dismiss();
                             btnCancelOrder.setVisibility(View.INVISIBLE);
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         btnCancelOrder.setVisibility(View.INVISIBLE);
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -165,7 +165,7 @@ public class CancelOrderFragment extends Fragment {
                 public void onFailure(Call<ArrayList<OrderHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     btnCancelOrder.setVisibility(View.INVISIBLE);
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -175,7 +175,7 @@ public class CancelOrderFragment extends Fragment {
     }
 
     public void showCancelDialog(final ArrayList<Integer> orderDetailIdList) {
-        Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
+        //Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
 
         final Dialog openDialog = new Dialog(getContext());
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -242,7 +242,7 @@ public class CancelOrderFragment extends Fragment {
     }
 
     public void cancelOrder(ArrayList<Integer> orderDetailIds, int status, String remark) {
-        Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
+        //Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
         if (Constants.isOnline(getContext())) {
             final CommonDialog commonDialog = new CommonDialog(getActivity(), "Loading", "Please Wait...");
             commonDialog.show();
@@ -254,7 +254,7 @@ public class CancelOrderFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("cancel order: ", "------------" + response.body());
+                            //Log.e("cancel order: ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -271,12 +271,12 @@ public class CancelOrderFragment extends Fragment {
                             Toast.makeText(getActivity(), "Unable to process!", Toast.LENGTH_SHORT).show();
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         Toast.makeText(getActivity(), "Unable to process!", Toast.LENGTH_SHORT).show();
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -285,7 +285,7 @@ public class CancelOrderFragment extends Fragment {
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     Toast.makeText(getActivity(), "Unable to process!", Toast.LENGTH_SHORT).show();
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -308,7 +308,7 @@ public class CancelOrderFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("free Data : ", "------------" + response.body());
+                            //Log.e("free Data : ", "------------" + response.body());
 
                             ArrayList<CancelMessageModel> data = response.body();
                             if (data == null) {
@@ -325,12 +325,12 @@ public class CancelOrderFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -338,7 +338,7 @@ public class CancelOrderFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<CancelMessageModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

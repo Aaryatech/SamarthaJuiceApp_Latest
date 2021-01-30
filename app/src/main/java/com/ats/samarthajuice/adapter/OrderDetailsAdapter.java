@@ -52,7 +52,7 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final OrderDetailsList model = orderItemList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvItem.setText("" + model.getItemName());
         holder.tvQty.setText("" + model.getQuantity());
@@ -69,11 +69,11 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    Log.e("CHECK", "-----------------" + model.getOrderDetailsId());
+                    //Log.e("CHECK", "-----------------" + model.getOrderDetailsId());
                     orderDetailIdStaticList.add(model.getOrderDetailsId());
                     orderDetailStaticList.add(model);
                 } else {
-                    Log.e("UN CHECK", "-----------------" + model.getOrderDetailsId());
+                    //Log.e("UN CHECK", "-----------------" + model.getOrderDetailsId());
 
                     ArrayList<Integer> tempArray = new ArrayList<>();
                     tempArray.add(model.getOrderDetailsId());
@@ -81,8 +81,8 @@ public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapte
                     orderDetailIdStaticList.removeAll(tempArray);
                     orderDetailStaticList.remove(model);
                 }
-                Log.e("STATIC ARRAY : ", "-------------------" + orderDetailIdStaticList);
-                Log.e("STATIC ARRAY MODEL : ", "-------------------" + orderDetailStaticList);
+                //Log.e("STATIC ARRAY : ", "-------------------" + orderDetailIdStaticList);
+                //Log.e("STATIC ARRAY MODEL : ", "-------------------" + orderDetailStaticList);
             }
         });
 

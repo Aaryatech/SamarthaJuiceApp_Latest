@@ -50,7 +50,7 @@ public class TempSelectedItemAdapter extends RecyclerView.Adapter<TempSelectedIt
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final ItemModel item = itemList.get(position);
-        Log.e("Adapter : ", " model : " + item);
+        //Log.e("Adapter : ", " model : " + item);
 
         if (item.getRemark() != null) {
             if (item.getRemark().isEmpty()) {

@@ -127,7 +127,7 @@ public class EditBillFragment extends Fragment implements View.OnClickListener {
                 e.printStackTrace();
             }
 
-            Log.e("BILL DETAIL : ", "----------------" + billItemListToSave);
+            //Log.e("BILL DETAIL : ", "----------------" + billItemListToSave);
 
             model.setBillDetails(billItemListToSave);
             editModel(model);
@@ -148,7 +148,7 @@ public class EditBillFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("edit bill : ", "------------" + response.body());
+                            //Log.e("edit bill : ", "------------" + response.body());
 
                             BillHeaderModel data = response.body();
                             if (data == null) {
@@ -166,11 +166,11 @@ public class EditBillFragment extends Fragment implements View.OnClickListener {
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -178,7 +178,7 @@ public class EditBillFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onFailure(Call<BillHeaderModel> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

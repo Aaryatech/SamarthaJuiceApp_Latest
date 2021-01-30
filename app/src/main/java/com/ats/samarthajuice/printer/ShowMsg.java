@@ -82,6 +82,7 @@ public class ShowMsg
         });
 
         try{
+
             alertDialog.create();
             alertDialog.show();
 

@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -58,14 +59,21 @@ import com.ats.samarthajuice.model.OrderHeaderModel;
 import com.ats.samarthajuice.model.OrderModel;
 import com.ats.samarthajuice.printer.PrintHelper;
 import com.ats.samarthajuice.printer.PrintReceiptType;
+import com.ats.samarthajuice.printer.ShowMsg;
 import com.ats.samarthajuice.util.CommonDialog;
 import com.ats.samarthajuice.util.CustomSharedPreference;
+import com.epson.epos2.discovery.DeviceInfo;
+import com.epson.epos2.discovery.Discovery;
+import com.epson.epos2.discovery.DiscoveryListener;
+import com.epson.epos2.discovery.FilterOption;
+import com.epson.epos2.printer.Printer;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -173,7 +181,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
         String jsonAdmin = CustomSharedPreference.getString(this, CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
 
         if (admin != null) {
             userId = admin.getAdminId();
@@ -338,7 +346,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("order Data : ", "------------" + response.body());
+                            //Log.e("order Data : ", "------------" + response.body());
 
                             ArrayList<OrderHeaderModel> data = response.body();
                             if (data == null) {
@@ -390,12 +398,12 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                         } else {
                             commonDialog.dismiss();
                             llButton.setVisibility(View.GONE);
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         llButton.setVisibility(View.GONE);
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -404,7 +412,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 public void onFailure(Call<ArrayList<OrderHeaderModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     llButton.setVisibility(View.GONE);
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -466,7 +474,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 OrderModel orderModel = new OrderModel(0, userId, tableNo, 1, sdf.format(calendar.getTimeInMillis()), sdf1.format(calendar.getTimeInMillis()), 1, orderDetailArray);
 
                 if (orderDetailArray.size() > 0) {
-                    Log.e("BEAN : ", "--------------------" + orderModel);
+                    //Log.e("BEAN : ", "--------------------" + orderModel);
                     saveOrder(orderModel);
                     openDialog.dismiss();
 
@@ -489,7 +497,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
     }
 
     public void showCancelDialog(final ArrayList<Integer> orderDetailIdList) {
-        Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
+        //Log.e("CANCEL", "----------------" + orderDetailIdStaticList);
 
         final Dialog openDialog = new Dialog(MenuWithSearchActivity.this);
         openDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -555,7 +563,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
     }
 
     public void cancelOrder(ArrayList<Integer> orderDetailIds, int status, String remark) {
-        Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
+        //Log.e("Parameters : ", "Order Detail Id List : ------------------" + orderDetailIds);
         if (Constants.isOnline(this)) {
             final CommonDialog commonDialog = new CommonDialog(this, "Loading", "Please Wait...");
             commonDialog.show();
@@ -567,7 +575,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("cancel order: ", "------------" + response.body());
+                            //Log.e("cancel order: ", "------------" + response.body());
 
                             ErrorMessage data = response.body();
                             if (data == null) {
@@ -592,12 +600,12 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                             Toast.makeText(MenuWithSearchActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         Toast.makeText(MenuWithSearchActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -606,7 +614,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     Toast.makeText(MenuWithSearchActivity.this, "Unable to process!", Toast.LENGTH_SHORT).show();
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -629,7 +637,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("free Data : ", "------------" + response.body());
+                            //Log.e("free Data : ", "------------" + response.body());
 
                             ArrayList<CancelMessageModel> data = response.body();
                             if (data == null) {
@@ -646,12 +654,12 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -659,7 +667,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 @Override
                 public void onFailure(Call<ArrayList<CancelMessageModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -681,7 +689,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Order Data : ", "------------" + response.body());
+                            //Log.e("Order Data : ", "------------" + response.body());
 
                             OrderHeaderModel data = response.body();
                             if (data == null) {
@@ -702,20 +710,41 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
 
                                 tempSelectedItemList();
 
+                                Printer mPrinter = null;
+                                try {
+                                    mPrinter = new Printer(Printer.TM_T82,
+                                            Printer.MODEL_ANK,
+                                            MenuWithSearchActivity.this);
+
+                                    mPrinter.clearCommandBuffer();
+                                    mPrinter.setReceiveEventListener(null);
+
+                                } catch (UnsatisfiedLinkError e) {
+                                    Log.e("UnsatisfiedLinkError", "-----initializeObject" + e.getMessage());
+                                } catch (NoClassDefFoundError e) {
+                                    Log.e("NoClassDefFoundError", "-----initializeObject" + e.getMessage());
+                                } catch (Exception e) {
+                                    Log.e("initializeObject", "-----------------------------------------------------------------");
+                                }
+
+
+
+
                                 try {
                                     String ip = CustomSharedPreference.getStringPrinter(MenuWithSearchActivity.this, CustomSharedPreference.KEY_KOT_IP);
                                     PrintHelper printHelper = new PrintHelper(MenuWithSearchActivity.this, ip, data, orderDetailsArray, tableName, PrintReceiptType.KOT);
                                     printHelper.runPrintReceiptSequence();
                                 } catch (Exception e) {
+
                                 }
 
 
-                                try {
+                               /* try {
                                     String ip = CustomSharedPreference.getStringPrinter(MenuWithSearchActivity.this, CustomSharedPreference.KEY_BILL_IP);
                                     PrintHelper printHelper = new PrintHelper(MenuWithSearchActivity.this, ip, data, orderDetailsArray, tableName, PrintReceiptType.KOT);
                                     printHelper.runPrintReceiptSequence();
                                 } catch (Exception e) {
-                                }
+                                }*/
 
                                 onBackPressed();
 
@@ -724,11 +753,11 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                         } else {
 
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -736,7 +765,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 @Override
                 public void onFailure(Call<OrderHeaderModel> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -776,8 +805,8 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     verifyItemList.add(staticItemList.get(i));
                 }
             }
-            Log.e("Item Phone","---------------------------------------------------------"+staticItemList);
-            Log.e("Item Phone","--------------------------Verify-------------------------------"+verifyItemList);
+            ////Log.e("Item Phone","---------------------------------------------------------"+staticItemList);
+            ////Log.e("Item Phone","--------------------------Verify-------------------------------"+verifyItemList);
 
             if (verifyItemList.size() > 0) {
                 showVerifyDialog(verifyItemList);
@@ -991,7 +1020,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     OrderModel orderModel = new OrderModel(0, userId, tableNo, 1, sdf.format(calendar.getTimeInMillis()), sdf1.format(calendar.getTimeInMillis()), 1, orderDetailArray);
 
                     if (orderDetailArray.size() > 0) {
-                        Log.e("BEAN : ", "--------------------" + orderModel);
+                        ////Log.e("BEAN : ", "--------------------" + orderModel);
                         saveOrder(orderModel);
                     } else {
                         Toast.makeText(MenuWithSearchActivity.this, "Please select item!", Toast.LENGTH_SHORT).show();
@@ -1022,7 +1051,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
 
         edCode.requestFocus();
 
-        Log.e("ITEMS ", " -------------- " + verifyItemList);
+        ////Log.e("ITEMS ", " -------------- " + verifyItemList);
 
         TempSelectedItemAdapter adapter = new TempSelectedItemAdapter(verifyItemList, MenuWithSearchActivity.this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MenuWithSearchActivity.this);
@@ -1052,7 +1081,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            ////Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<ItemModel> data = response.body();
                             if (data == null) {
@@ -1071,12 +1100,12 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(MenuWithSearchActivity.this, "No items found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            ////Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        ////Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -1085,7 +1114,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 public void onFailure(Call<ArrayList<ItemModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(MenuWithSearchActivity.this, "No items found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    ////Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -1107,7 +1136,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            ////Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<CategoryMenuModel> data = response.body();
                             if (data == null) {
@@ -1124,12 +1153,12 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            ////Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        ////Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -1137,7 +1166,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                 @Override
                 public void onFailure(Call<ArrayList<CategoryMenuModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    ////Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -1225,7 +1254,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
                             posit = posit + categoryModelList.get(i).getCount();
                         }
                     }
-                    Log.e("POSITION : ", "-------------------" + posit);
+                    ////Log.e("POSITION : ", "-------------------" + posit);
 
                     smoothScrollToPositionFromTop(listView, posit);
                 }
@@ -1240,7 +1269,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
     private void gridViewSetting(GridView gridview) {
 
         int size = categoryList.size();
-        // Log.e("Size : ", "----------" + size);
+        // ////Log.e("Size : ", "----------" + size);
         // Calculated single Item Layout Width for each grid element ....
         int width = 130;//400
 
@@ -1252,7 +1281,7 @@ public class MenuWithSearchActivity extends AppCompatActivity implements View.On
         float density = dm.density;
 
         int totalWidth = (int) (width * size * density);
-        //  Log.e("Total Width : ", "----------" + totalWidth);
+        //  ////Log.e("Total Width : ", "----------" + totalWidth);
         int singleItemWidth = (int) (width * density);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(

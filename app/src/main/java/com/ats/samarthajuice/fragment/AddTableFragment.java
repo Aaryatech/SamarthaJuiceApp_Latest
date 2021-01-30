@@ -62,7 +62,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
         String jsonAdmin = CustomSharedPreference.getString(getContext(), CustomSharedPreference.KEY_ADMIN);
         final Admin admin = gson.fromJson(jsonAdmin, Admin.class);
 
-        Log.e("Admin : ", "---------------------------" + admin);
+        //Log.e("Admin : ", "---------------------------" + admin);
         if (admin != null) {
             userId=admin.getAdminId();
             venueId = admin.getVenueId();
@@ -78,7 +78,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
         TableModel model = gson1.fromJson(str, TableModel.class);
 
         if (model != null) {
-            Log.e("MODEL : ", "--------------" + model);
+            //Log.e("MODEL : ", "--------------" + model);
 
             tableId = model.getTableId();
             edName.setText("" + model.getTableName());
@@ -139,7 +139,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Data : ", "------------" + response.body());
+                            //Log.e("Data : ", "------------" + response.body());
 
                             TableModel data = response.body();
                             if (data == null) {
@@ -158,12 +158,12 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -172,7 +172,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                 public void onFailure(Call<TableModel> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "Unable to process!", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -194,7 +194,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            //Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<TableCategoryModel> data = response.body();
                             if (data == null) {
@@ -227,12 +227,12 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "No category found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -241,7 +241,7 @@ public class AddTableFragment extends Fragment implements View.OnClickListener {
                 public void onFailure(Call<ArrayList<TableCategoryModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "No category found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

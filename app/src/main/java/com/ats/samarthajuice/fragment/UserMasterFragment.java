@@ -81,7 +81,7 @@ public class UserMasterFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Admin Data : ", "------------" + response.body());
+                            //Log.e("Admin Data : ", "------------" + response.body());
 
                             ArrayList<AdminModel> data = response.body();
                             if (data == null) {
@@ -103,12 +103,12 @@ public class UserMasterFragment extends Fragment {
                         } else {
                             commonDialog.dismiss();
                             Toast.makeText(getContext(), "No users found", Toast.LENGTH_SHORT).show();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         Toast.makeText(getContext(), "No users found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -117,7 +117,7 @@ public class UserMasterFragment extends Fragment {
                 public void onFailure(Call<ArrayList<AdminModel>> call, Throwable t) {
                     commonDialog.dismiss();
                     Toast.makeText(getContext(), "No users found", Toast.LENGTH_SHORT).show();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

@@ -60,7 +60,7 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
     @Override
     public void onBindViewHolder(final ChangeTableAdapter.MyViewHolder holder, int position) {
         final TableFreeModel model = tableList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         // holder.tvTable.setText("Table No. " + model.getTableName());
         holder.tvTable.setText("" + model.getTableName());
@@ -86,7 +86,7 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
     }
 
     public void getUpdateTable(int tableNo,int orderId) {
-        Log.e("PARAMETER","      TABLE NO   :   "+tableNo+"      ORDER NO :    "+orderId);
+        //Log.e("PARAMETER","      TABLE NO   :   "+tableNo+"      ORDER NO :    "+orderId);
         if (Constants.isOnline(context)) {
             final CommonDialog commonDialog = new CommonDialog(context, "Loading", "Please Wait...");
             commonDialog.show();
@@ -98,7 +98,7 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Update table : ", "------------" + response.body());
+                            //Log.e("Update table : ", "------------" + response.body());
 
                             Intent intent = new Intent(context, HomeActivity.class);
                             context.startActivity(intent);
@@ -106,7 +106,7 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
                                 commonDialog.dismiss();
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
@@ -118,7 +118,7 @@ public class ChangeTableAdapter extends RecyclerView.Adapter<ChangeTableAdapter.
                 @Override
                 public void onFailure(Call<ErrorMessage> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });

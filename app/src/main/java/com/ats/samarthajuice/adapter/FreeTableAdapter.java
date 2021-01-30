@@ -50,7 +50,7 @@ public class FreeTableAdapter extends RecyclerView.Adapter<FreeTableAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final TableFreeModel model = tableList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
        // holder.tvTable.setText("Table No. " + model.getTableName());
         holder.tvTable.setText("" + model.getTableName());

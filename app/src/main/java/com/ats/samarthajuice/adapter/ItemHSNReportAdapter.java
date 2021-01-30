@@ -50,7 +50,7 @@ public class ItemHSNReportAdapter extends RecyclerView.Adapter<ItemHSNReportAdap
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ItemHSNCodeReportModel model = itemList.get(position);
-        Log.e("Adapter : ", " model : " + model);
+        //Log.e("Adapter : ", " model : " + model);
 
         holder.tvName.setText(model.getHsnCode());
         holder.tvAmount.setText("" + model.getTaxableAmount());

@@ -18,15 +18,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ats.samarthajuice.R;
+import com.ats.samarthajuice.activity.HomeActivity;
 import com.ats.samarthajuice.adapter.BusyTableAdapter;
 import com.ats.samarthajuice.adapter.FreeTableAdapter;
 import com.ats.samarthajuice.constant.Constants;
+import com.ats.samarthajuice.model.OrderDetails;
+import com.ats.samarthajuice.model.OrderHeaderModel;
 import com.ats.samarthajuice.model.TableBusyModel;
 import com.ats.samarthajuice.model.TableCategoryModel;
 import com.ats.samarthajuice.model.TableFreeModel;
+import com.ats.samarthajuice.printer.PrintHelper;
+import com.ats.samarthajuice.printer.PrintReceiptType;
 import com.ats.samarthajuice.util.CommonDialog;
 import com.ats.samarthajuice.util.CustomSharedPreference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -103,6 +111,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+        Gson gson=new Gson();
+        String orderDisp=CustomSharedPreference.getString(getActivity(),CustomSharedPreference.KEY_BUFF_ORDER_DISPLAY);
+        String orderDetail=CustomSharedPreference.getString(getActivity(),CustomSharedPreference.KEY_BUFF_ORDER_DETAILS);
+        String tableName=CustomSharedPreference.getString(getActivity(),CustomSharedPreference.KEY_BUFF_ORDER_TABLE_NAME);
+
+        OrderHeaderModel orderDisplay = gson.fromJson(orderDisp, OrderHeaderModel.class);
+
+        Type type = new TypeToken<ArrayList<OrderDetails>>() {
+        }.getType();
+        ArrayList<OrderDetails> detailList = gson.fromJson(orderDetail, type);
+
+        Log.e("PRINT","**********************************  "+orderDisp);
+
+        if(orderDisp!=null){
+            if(!orderDisp.isEmpty()){
+                try {
+                    Log.e("PRINT","********************************** -////////////////// ");
+
+                    if(orderDisplay!=null){
+                        String ip = CustomSharedPreference.getStringPrinter(getActivity(), CustomSharedPreference.KEY_KOT_IP);
+                        PrintHelper printHelper = new PrintHelper(getActivity(), ip, orderDisplay, detailList, tableName, PrintReceiptType.KOT);
+                        printHelper.runPrintReceiptSequence();
+                    }
+
+                } catch (Exception e) {
+
+                }
+            }
+
+        }
+
+
+
         return view;
     }
 
@@ -125,7 +167,7 @@ public class HomeFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("busy Data : ", "------------" + response.body());
+                            //Log.e("busy Data : ", "------------" + response.body());
 
                             ArrayList<TableBusyModel> data = response.body();
                             if (data == null) {
@@ -136,19 +178,19 @@ public class HomeFragment extends Fragment {
                                 busyTableList = data;
 
                                 //busyTableAdapter = new BusyTableAdapter(busyTableList, getContext(),freeTableList);
-                                busyTableAdapter = new BusyTableAdapter(busyTableList, getContext());
+                                busyTableAdapter = new BusyTableAdapter(busyTableList, getContext(),freeTableList);
                                 gridView.setAdapter(busyTableAdapter);
 
                                 commonDialog.dismiss();
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -156,7 +198,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TableBusyModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -184,7 +226,7 @@ public class HomeFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("free Data : ", "------------" + response.body());
+                            //Log.e("free Data : ", "------------" + response.body());
 
                             ArrayList<TableFreeModel> data = response.body();
                             if (data == null) {
@@ -204,12 +246,12 @@ public class HomeFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
                         //  Toast.makeText(getContext(), "No categories found", Toast.LENGTH_SHORT).show();
-                        Log.e("Exception : ", "-----------" + e.getMessage());
+                        //Log.e("Exception : ", "-----------" + e.getMessage());
                         e.printStackTrace();
                     }
                 }
@@ -217,7 +259,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TableFreeModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
@@ -239,7 +281,7 @@ public class HomeFragment extends Fragment {
                     try {
                         if (response.body() != null) {
 
-                            Log.e("Category Data : ", "------------" + response.body());
+                            //Log.e("Category Data : ", "------------" + response.body());
 
                             ArrayList<TableCategoryModel> data = response.body();
                             if (data == null) {
@@ -273,7 +315,7 @@ public class HomeFragment extends Fragment {
                             }
                         } else {
                             commonDialog.dismiss();
-                            Log.e("Data Null : ", "-----------");
+                            //Log.e("Data Null : ", "-----------");
                         }
                     } catch (Exception e) {
                         commonDialog.dismiss();
@@ -285,7 +327,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onFailure(Call<ArrayList<TableCategoryModel>> call, Throwable t) {
                     commonDialog.dismiss();
-                    Log.e("onFailure : ", "-----------" + t.getMessage());
+                    //Log.e("onFailure : ", "-----------" + t.getMessage());
                     t.printStackTrace();
                 }
             });
